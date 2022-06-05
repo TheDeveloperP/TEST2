@@ -1769,7 +1769,7 @@ namespace LTN.CS.SCMForm.PM
             }
         }
         /// <summary>
-        /// 修改    6-5
+        /// 修改    6-5-111
         /// </summary>
         /// <param name="poundtrainmats"></param>
         /// <param name="tare"></param>
