@@ -345,7 +345,7 @@ namespace LTN.CS.SCMForm.PM
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void gToolStripButton1_Click(object sender, EventArgs e)
-        {           
+        {
             if (gcl_main.DataSource == null)
                 return;
             SaveFileDialog fileDialog = new SaveFileDialog();

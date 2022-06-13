@@ -138,6 +138,7 @@ namespace LTN.CS.SCMForm.PM
             {
                 SelectMainEntity = new PM_Pond_Bill_Supplies();
                 SelectMainEntity.CreateUser = SessionHelper.LogUserNickName;
+                setBillInfo(bill);
             }            
             SelectMainEntity.PlanStatus = "I";
             if (SelectMainEntity.UpLoadStatus == "Y")

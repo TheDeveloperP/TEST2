@@ -189,6 +189,7 @@
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.CaptionLocation = DevExpress.Utils.Locations.Left;
             this.splitContainerControl1.Panel1.Controls.Add(this.splitContainerControl2);
@@ -196,8 +197,8 @@
             this.splitContainerControl1.Panel2.CaptionLocation = DevExpress.Utils.Locations.Right;
             this.splitContainerControl1.Panel2.Controls.Add(this.splitContainerControl3);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(979, 728);
-            this.splitContainerControl1.SplitterPosition = 446;
+            this.splitContainerControl1.Size = new System.Drawing.Size(1305, 936);
+            this.splitContainerControl1.SplitterPosition = 595;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
@@ -206,6 +207,7 @@
             this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl2.Horizontal = false;
             this.splitContainerControl2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl2.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainerControl2.Name = "splitContainerControl2";
             this.splitContainerControl2.Panel1.Controls.Add(this.gcl_main);
             this.splitContainerControl2.Panel1.Text = "Panel1";
@@ -213,18 +215,20 @@
             this.splitContainerControl2.Panel2.Controls.Add(this.layoutControl2);
             this.splitContainerControl2.Panel2.Controls.Add(this.layoutControl1);
             this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(446, 728);
-            this.splitContainerControl2.SplitterPosition = 317;
+            this.splitContainerControl2.Size = new System.Drawing.Size(595, 936);
+            this.splitContainerControl2.SplitterPosition = 423;
             this.splitContainerControl2.TabIndex = 0;
             this.splitContainerControl2.Text = "splitContainerControl2";
             // 
             // gcl_main
             // 
             this.gcl_main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcl_main.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gcl_main.Location = new System.Drawing.Point(0, 0);
             this.gcl_main.MainView = this.gvw_main;
+            this.gcl_main.Margin = new System.Windows.Forms.Padding(4);
             this.gcl_main.Name = "gcl_main";
-            this.gcl_main.Size = new System.Drawing.Size(446, 317);
+            this.gcl_main.Size = new System.Drawing.Size(595, 423);
             this.gcl_main.TabIndex = 0;
             this.gcl_main.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvw_main});
@@ -354,10 +358,12 @@
             // gcl_pond
             // 
             this.gcl_pond.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcl_pond.Location = new System.Drawing.Point(0, 81);
+            this.gcl_pond.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
+            this.gcl_pond.Location = new System.Drawing.Point(0, 104);
             this.gcl_pond.MainView = this.gvw_pond;
+            this.gcl_pond.Margin = new System.Windows.Forms.Padding(4);
             this.gcl_pond.Name = "gcl_pond";
-            this.gcl_pond.Size = new System.Drawing.Size(446, 270);
+            this.gcl_pond.Size = new System.Drawing.Size(595, 332);
             this.gcl_pond.TabIndex = 3;
             this.gcl_pond.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvw_pond});
@@ -400,6 +406,7 @@
             this.gvw_pond.OptionsView.RowAutoHeight = true;
             this.gvw_pond.OptionsView.ShowFooter = true;
             this.gvw_pond.OptionsView.ShowGroupPanel = false;
+            this.gvw_pond.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gvw_Pond_RowCellStyle);
             this.gvw_pond.KeyUp += new System.Windows.Forms.KeyEventHandler(this.gvw_pond_KeyUp);
             // 
             // gridColumn26
@@ -564,19 +571,21 @@
             this.layoutControl2.Controls.Add(this.btn_qplan);
             this.layoutControl2.Controls.Add(this.btn_return);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.layoutControl2.Location = new System.Drawing.Point(0, 351);
+            this.layoutControl2.Location = new System.Drawing.Point(0, 436);
+            this.layoutControl2.Margin = new System.Windows.Forms.Padding(4);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(446, 55);
+            this.layoutControl2.Size = new System.Drawing.Size(595, 71);
             this.layoutControl2.TabIndex = 2;
             this.layoutControl2.Text = "layoutControl2";
             // 
             // btn_save
             // 
             this.btn_save.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btn_save.Location = new System.Drawing.Point(393, 12);
+            this.btn_save.Location = new System.Drawing.Point(525, 16);
+            this.btn_save.Margin = new System.Windows.Forms.Padding(4);
             this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(41, 31);
+            this.btn_save.Size = new System.Drawing.Size(54, 39);
             this.btn_save.TabIndex = 9;
             this.btn_save.Text = "保存";
             this.btn_save.UseVisualStyleBackColor = true;
@@ -584,10 +593,12 @@
             // 
             // btn_savepond
             // 
+            this.btn_savepond.Enabled = false;
             this.btn_savepond.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btn_savepond.Location = new System.Drawing.Point(85, 12);
+            this.btn_savepond.Location = new System.Drawing.Point(114, 16);
+            this.btn_savepond.Margin = new System.Windows.Forms.Padding(4);
             this.btn_savepond.Name = "btn_savepond";
-            this.btn_savepond.Size = new System.Drawing.Size(107, 31);
+            this.btn_savepond.Size = new System.Drawing.Size(142, 39);
             this.btn_savepond.TabIndex = 8;
             this.btn_savepond.Text = "保存磅单";
             this.btn_savepond.UseVisualStyleBackColor = true;
@@ -596,9 +607,10 @@
             // btn_pipei
             // 
             this.btn_pipei.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btn_pipei.Location = new System.Drawing.Point(302, 12);
+            this.btn_pipei.Location = new System.Drawing.Point(403, 16);
+            this.btn_pipei.Margin = new System.Windows.Forms.Padding(4);
             this.btn_pipei.Name = "btn_pipei";
-            this.btn_pipei.Size = new System.Drawing.Size(87, 31);
+            this.btn_pipei.Size = new System.Drawing.Size(116, 39);
             this.btn_pipei.TabIndex = 6;
             this.btn_pipei.Text = "匹配上传";
             this.btn_pipei.UseVisualStyleBackColor = true;
@@ -607,9 +619,10 @@
             // btn_qplan
             // 
             this.btn_qplan.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btn_qplan.Location = new System.Drawing.Point(196, 12);
+            this.btn_qplan.Location = new System.Drawing.Point(262, 16);
+            this.btn_qplan.Margin = new System.Windows.Forms.Padding(4);
             this.btn_qplan.Name = "btn_qplan";
-            this.btn_qplan.Size = new System.Drawing.Size(102, 31);
+            this.btn_qplan.Size = new System.Drawing.Size(135, 39);
             this.btn_qplan.TabIndex = 5;
             this.btn_qplan.Text = "查询计划";
             this.btn_qplan.UseVisualStyleBackColor = true;
@@ -618,9 +631,10 @@
             // btn_return
             // 
             this.btn_return.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btn_return.Location = new System.Drawing.Point(12, 12);
+            this.btn_return.Location = new System.Drawing.Point(16, 16);
+            this.btn_return.Margin = new System.Windows.Forms.Padding(4);
             this.btn_return.Name = "btn_return";
-            this.btn_return.Size = new System.Drawing.Size(69, 31);
+            this.btn_return.Size = new System.Drawing.Size(92, 39);
             this.btn_return.TabIndex = 4;
             this.btn_return.Text = "回退";
             this.btn_return.UseVisualStyleBackColor = true;
@@ -638,7 +652,7 @@
             this.layoutControlItem6});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "Root";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(446, 55);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(595, 71);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem7
@@ -646,43 +660,43 @@
             this.layoutControlItem7.Control = this.btn_return;
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(73, 35);
+            this.layoutControlItem7.Size = new System.Drawing.Size(98, 45);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.btn_qplan;
-            this.layoutControlItem8.Location = new System.Drawing.Point(184, 0);
+            this.layoutControlItem8.Location = new System.Drawing.Point(246, 0);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(106, 35);
+            this.layoutControlItem8.Size = new System.Drawing.Size(141, 45);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.btn_pipei;
-            this.layoutControlItem9.Location = new System.Drawing.Point(290, 0);
+            this.layoutControlItem9.Location = new System.Drawing.Point(387, 0);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(91, 35);
+            this.layoutControlItem9.Size = new System.Drawing.Size(122, 45);
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
             // 
             // layoutControlItem18
             // 
             this.layoutControlItem18.Control = this.btn_savepond;
-            this.layoutControlItem18.Location = new System.Drawing.Point(73, 0);
+            this.layoutControlItem18.Location = new System.Drawing.Point(98, 0);
             this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(111, 35);
+            this.layoutControlItem18.Size = new System.Drawing.Size(148, 45);
             this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem18.TextVisible = false;
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btn_save;
-            this.layoutControlItem6.Location = new System.Drawing.Point(381, 0);
+            this.layoutControlItem6.Location = new System.Drawing.Point(509, 0);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(45, 35);
+            this.layoutControlItem6.Size = new System.Drawing.Size(60, 45);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             this.layoutControlItem6.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -699,18 +713,20 @@
             this.layoutControl1.Controls.Add(this.lue_SiteNo);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(446, 81);
+            this.layoutControl1.Size = new System.Drawing.Size(595, 104);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // btn_matchTare
             // 
             this.btn_matchTare.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btn_matchTare.Location = new System.Drawing.Point(351, 42);
+            this.btn_matchTare.Location = new System.Drawing.Point(469, 52);
+            this.btn_matchTare.Margin = new System.Windows.Forms.Padding(4);
             this.btn_matchTare.Name = "btn_matchTare";
-            this.btn_matchTare.Size = new System.Drawing.Size(83, 27);
+            this.btn_matchTare.Size = new System.Drawing.Size(110, 36);
             this.btn_matchTare.TabIndex = 13;
             this.btn_matchTare.Text = "匹配皮重";
             this.btn_matchTare.UseVisualStyleBackColor = true;
@@ -720,9 +736,10 @@
             // 
             this.btn_biaopi.Enabled = false;
             this.btn_biaopi.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btn_biaopi.Location = new System.Drawing.Point(261, 42);
+            this.btn_biaopi.Location = new System.Drawing.Point(349, 52);
+            this.btn_biaopi.Margin = new System.Windows.Forms.Padding(4);
             this.btn_biaopi.Name = "btn_biaopi";
-            this.btn_biaopi.Size = new System.Drawing.Size(86, 27);
+            this.btn_biaopi.Size = new System.Drawing.Size(114, 36);
             this.btn_biaopi.TabIndex = 10;
             this.btn_biaopi.Text = "空车";
             this.btn_biaopi.UseVisualStyleBackColor = true;
@@ -731,9 +748,10 @@
             // btn_biaomao
             // 
             this.btn_biaomao.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btn_biaomao.Location = new System.Drawing.Point(160, 42);
+            this.btn_biaomao.Location = new System.Drawing.Point(214, 52);
+            this.btn_biaomao.Margin = new System.Windows.Forms.Padding(4);
             this.btn_biaomao.Name = "btn_biaomao";
-            this.btn_biaomao.Size = new System.Drawing.Size(97, 27);
+            this.btn_biaomao.Size = new System.Drawing.Size(129, 36);
             this.btn_biaomao.TabIndex = 9;
             this.btn_biaomao.Text = "重车";
             this.btn_biaomao.UseVisualStyleBackColor = true;
@@ -742,9 +760,10 @@
             // btn_shipin
             // 
             this.btn_shipin.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btn_shipin.Location = new System.Drawing.Point(351, 12);
+            this.btn_shipin.Location = new System.Drawing.Point(469, 16);
+            this.btn_shipin.Margin = new System.Windows.Forms.Padding(4);
             this.btn_shipin.Name = "btn_shipin";
-            this.btn_shipin.Size = new System.Drawing.Size(83, 26);
+            this.btn_shipin.Size = new System.Drawing.Size(110, 30);
             this.btn_shipin.TabIndex = 8;
             this.btn_shipin.Text = "视频连接";
             this.btn_shipin.UseVisualStyleBackColor = true;
@@ -753,9 +772,10 @@
             // btn_zuofei
             // 
             this.btn_zuofei.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btn_zuofei.Location = new System.Drawing.Point(261, 12);
+            this.btn_zuofei.Location = new System.Drawing.Point(349, 16);
+            this.btn_zuofei.Margin = new System.Windows.Forms.Padding(4);
             this.btn_zuofei.Name = "btn_zuofei";
-            this.btn_zuofei.Size = new System.Drawing.Size(86, 26);
+            this.btn_zuofei.Size = new System.Drawing.Size(114, 30);
             this.btn_zuofei.TabIndex = 7;
             this.btn_zuofei.Text = "作废";
             this.btn_zuofei.UseVisualStyleBackColor = true;
@@ -764,9 +784,10 @@
             // btn_select
             // 
             this.btn_select.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btn_select.Location = new System.Drawing.Point(160, 12);
+            this.btn_select.Location = new System.Drawing.Point(214, 16);
+            this.btn_select.Margin = new System.Windows.Forms.Padding(4);
             this.btn_select.Name = "btn_select";
-            this.btn_select.Size = new System.Drawing.Size(97, 26);
+            this.btn_select.Size = new System.Drawing.Size(129, 30);
             this.btn_select.TabIndex = 6;
             this.btn_select.Text = "查询";
             this.btn_select.UseVisualStyleBackColor = true;
@@ -774,7 +795,8 @@
             // 
             // lue_FormationTag
             // 
-            this.lue_FormationTag.Location = new System.Drawing.Point(79, 42);
+            this.lue_FormationTag.Location = new System.Drawing.Point(99, 52);
+            this.lue_FormationTag.Margin = new System.Windows.Forms.Padding(4);
             this.lue_FormationTag.Name = "lue_FormationTag";
             this.lue_FormationTag.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.lue_FormationTag.Properties.Appearance.Options.UseFont = true;
@@ -784,7 +806,7 @@
             this.lue_FormationTag.Properties.NullText = "";
             this.lue_FormationTag.Properties.ValueMember = "FormationTag";
             this.lue_FormationTag.Properties.View = this.searchLookUpEdit2View;
-            this.lue_FormationTag.Size = new System.Drawing.Size(77, 26);
+            this.lue_FormationTag.Size = new System.Drawing.Size(109, 30);
             this.lue_FormationTag.StyleController = this.layoutControl1;
             this.lue_FormationTag.TabIndex = 5;
             this.lue_FormationTag.EditValueChanged += new System.EventHandler(this.lue_FormationTag_EditValueChanged);
@@ -835,7 +857,8 @@
             // 
             // lue_SiteNo
             // 
-            this.lue_SiteNo.Location = new System.Drawing.Point(79, 12);
+            this.lue_SiteNo.Location = new System.Drawing.Point(99, 16);
+            this.lue_SiteNo.Margin = new System.Windows.Forms.Padding(4);
             this.lue_SiteNo.Name = "lue_SiteNo";
             this.lue_SiteNo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.lue_SiteNo.Properties.Appearance.Options.UseFont = true;
@@ -845,7 +868,7 @@
             this.lue_SiteNo.Properties.NullText = "";
             this.lue_SiteNo.Properties.ValueMember = "PondSiteNo";
             this.lue_SiteNo.Properties.View = this.searchLookUpEdit1View;
-            this.lue_SiteNo.Size = new System.Drawing.Size(77, 26);
+            this.lue_SiteNo.Size = new System.Drawing.Size(109, 30);
             this.lue_SiteNo.StyleController = this.layoutControl1;
             this.lue_SiteNo.TabIndex = 4;
             this.lue_SiteNo.EditValueChanged += new System.EventHandler(this.lue_SiteNo_EditValueChanged);
@@ -901,7 +924,7 @@
             this.layoutControlItem17});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(446, 81);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(595, 104);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // 选择磅点
@@ -911,70 +934,70 @@
             this.选择磅点.Control = this.lue_SiteNo;
             this.选择磅点.Location = new System.Drawing.Point(0, 0);
             this.选择磅点.Name = "选择磅点";
-            this.选择磅点.Size = new System.Drawing.Size(148, 30);
-            this.选择磅点.TextSize = new System.Drawing.Size(64, 19);
+            this.选择磅点.Size = new System.Drawing.Size(198, 36);
+            this.选择磅点.TextSize = new System.Drawing.Size(80, 24);
             // 
             // 选择车组
             // 
             this.选择车组.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F);
             this.选择车组.AppearanceItemCaption.Options.UseFont = true;
             this.选择车组.Control = this.lue_FormationTag;
-            this.选择车组.Location = new System.Drawing.Point(0, 30);
+            this.选择车组.Location = new System.Drawing.Point(0, 36);
             this.选择车组.Name = "选择车组";
-            this.选择车组.Size = new System.Drawing.Size(148, 31);
-            this.选择车组.TextSize = new System.Drawing.Size(64, 19);
+            this.选择车组.Size = new System.Drawing.Size(198, 42);
+            this.选择车组.TextSize = new System.Drawing.Size(80, 24);
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.btn_select;
-            this.layoutControlItem1.Location = new System.Drawing.Point(148, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(198, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(101, 30);
+            this.layoutControlItem1.Size = new System.Drawing.Size(135, 36);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btn_zuofei;
-            this.layoutControlItem2.Location = new System.Drawing.Point(249, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(333, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(90, 30);
+            this.layoutControlItem2.Size = new System.Drawing.Size(120, 36);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btn_shipin;
-            this.layoutControlItem3.Location = new System.Drawing.Point(339, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(453, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(87, 30);
+            this.layoutControlItem3.Size = new System.Drawing.Size(116, 36);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btn_biaomao;
-            this.layoutControlItem4.Location = new System.Drawing.Point(148, 30);
+            this.layoutControlItem4.Location = new System.Drawing.Point(198, 36);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(101, 31);
+            this.layoutControlItem4.Size = new System.Drawing.Size(135, 42);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btn_biaopi;
-            this.layoutControlItem5.Location = new System.Drawing.Point(249, 30);
+            this.layoutControlItem5.Location = new System.Drawing.Point(333, 36);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(90, 31);
+            this.layoutControlItem5.Size = new System.Drawing.Size(120, 42);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
             // layoutControlItem17
             // 
             this.layoutControlItem17.Control = this.btn_matchTare;
-            this.layoutControlItem17.Location = new System.Drawing.Point(339, 30);
+            this.layoutControlItem17.Location = new System.Drawing.Point(453, 36);
             this.layoutControlItem17.Name = "layoutControlItem17";
-            this.layoutControlItem17.Size = new System.Drawing.Size(87, 31);
+            this.layoutControlItem17.Size = new System.Drawing.Size(116, 42);
             this.layoutControlItem17.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem17.TextVisible = false;
             // 
@@ -983,6 +1006,7 @@
             this.splitContainerControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl3.Horizontal = false;
             this.splitContainerControl3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl3.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainerControl3.Name = "splitContainerControl3";
             this.splitContainerControl3.Panel1.Controls.Add(this.tableLayoutPanel1);
             this.splitContainerControl3.Panel1.Text = "Panel1";
@@ -990,8 +1014,8 @@
             this.splitContainerControl3.Panel2.Controls.Add(this.pictureEdit1);
             this.splitContainerControl3.Panel2.Controls.Add(this.layoutControl3);
             this.splitContainerControl3.Panel2.Text = "Panel2";
-            this.splitContainerControl3.Size = new System.Drawing.Size(528, 728);
-            this.splitContainerControl3.SplitterPosition = 363;
+            this.splitContainerControl3.Size = new System.Drawing.Size(704, 936);
+            this.splitContainerControl3.SplitterPosition = 484;
             this.splitContainerControl3.TabIndex = 0;
             this.splitContainerControl3.Text = "splitContainerControl3";
             // 
@@ -1006,20 +1030,22 @@
             this.tableLayoutPanel1.Controls.Add(this.panelControl4, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(528, 363);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(704, 484);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.lblVideo1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(3, 3);
+            this.panelControl1.Location = new System.Drawing.Point(4, 4);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(4);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(258, 175);
+            this.panelControl1.Size = new System.Drawing.Size(344, 234);
             this.panelControl1.TabIndex = 0;
             this.panelControl1.DoubleClick += new System.EventHandler(this.panelControl1_DoubleClick);
             // 
@@ -1027,9 +1053,10 @@
             // 
             this.lblVideo1.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold);
             this.lblVideo1.Appearance.Options.UseFont = true;
-            this.lblVideo1.Location = new System.Drawing.Point(67, 70);
+            this.lblVideo1.Location = new System.Drawing.Point(89, 90);
+            this.lblVideo1.Margin = new System.Windows.Forms.Padding(4);
             this.lblVideo1.Name = "lblVideo1";
-            this.lblVideo1.Size = new System.Drawing.Size(105, 28);
+            this.lblVideo1.Size = new System.Drawing.Size(135, 36);
             this.lblVideo1.TabIndex = 0;
             this.lblVideo1.Text = "视频未连接";
             // 
@@ -1037,9 +1064,10 @@
             // 
             this.panelControl2.Controls.Add(this.lblVideo2);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(267, 3);
+            this.panelControl2.Location = new System.Drawing.Point(356, 4);
+            this.panelControl2.Margin = new System.Windows.Forms.Padding(4);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(258, 175);
+            this.panelControl2.Size = new System.Drawing.Size(344, 234);
             this.panelControl2.TabIndex = 1;
             this.panelControl2.DoubleClick += new System.EventHandler(this.panelControl2_DoubleClick);
             // 
@@ -1047,9 +1075,10 @@
             // 
             this.lblVideo2.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold);
             this.lblVideo2.Appearance.Options.UseFont = true;
-            this.lblVideo2.Location = new System.Drawing.Point(59, 70);
+            this.lblVideo2.Location = new System.Drawing.Point(79, 90);
+            this.lblVideo2.Margin = new System.Windows.Forms.Padding(4);
             this.lblVideo2.Name = "lblVideo2";
-            this.lblVideo2.Size = new System.Drawing.Size(105, 28);
+            this.lblVideo2.Size = new System.Drawing.Size(135, 36);
             this.lblVideo2.TabIndex = 0;
             this.lblVideo2.Text = "视频未连接";
             // 
@@ -1057,9 +1086,10 @@
             // 
             this.panelControl3.Controls.Add(this.lblVideo3);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(3, 184);
+            this.panelControl3.Location = new System.Drawing.Point(4, 246);
+            this.panelControl3.Margin = new System.Windows.Forms.Padding(4);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(258, 176);
+            this.panelControl3.Size = new System.Drawing.Size(344, 234);
             this.panelControl3.TabIndex = 2;
             this.panelControl3.DoubleClick += new System.EventHandler(this.panelControl3_DoubleClick);
             // 
@@ -1067,9 +1097,10 @@
             // 
             this.lblVideo3.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold);
             this.lblVideo3.Appearance.Options.UseFont = true;
-            this.lblVideo3.Location = new System.Drawing.Point(67, 76);
+            this.lblVideo3.Location = new System.Drawing.Point(89, 98);
+            this.lblVideo3.Margin = new System.Windows.Forms.Padding(4);
             this.lblVideo3.Name = "lblVideo3";
-            this.lblVideo3.Size = new System.Drawing.Size(105, 28);
+            this.lblVideo3.Size = new System.Drawing.Size(135, 36);
             this.lblVideo3.TabIndex = 0;
             this.lblVideo3.Text = "视频未连接";
             // 
@@ -1077,9 +1108,10 @@
             // 
             this.panelControl4.Controls.Add(this.lblVideo4);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl4.Location = new System.Drawing.Point(267, 184);
+            this.panelControl4.Location = new System.Drawing.Point(356, 246);
+            this.panelControl4.Margin = new System.Windows.Forms.Padding(4);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(258, 176);
+            this.panelControl4.Size = new System.Drawing.Size(344, 234);
             this.panelControl4.TabIndex = 3;
             this.panelControl4.DoubleClick += new System.EventHandler(this.panelControl4_DoubleClick);
             // 
@@ -1087,19 +1119,22 @@
             // 
             this.lblVideo4.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold);
             this.lblVideo4.Appearance.Options.UseFont = true;
-            this.lblVideo4.Location = new System.Drawing.Point(59, 76);
+            this.lblVideo4.Location = new System.Drawing.Point(79, 98);
+            this.lblVideo4.Margin = new System.Windows.Forms.Padding(4);
             this.lblVideo4.Name = "lblVideo4";
-            this.lblVideo4.Size = new System.Drawing.Size(105, 28);
+            this.lblVideo4.Size = new System.Drawing.Size(135, 36);
             this.lblVideo4.TabIndex = 0;
             this.lblVideo4.Text = "视频未连接";
             // 
             // gcl_result
             // 
             this.gcl_result.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcl_result.Location = new System.Drawing.Point(0, 82);
+            this.gcl_result.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
+            this.gcl_result.Location = new System.Drawing.Point(0, 105);
             this.gcl_result.MainView = this.gvw_result;
+            this.gcl_result.Margin = new System.Windows.Forms.Padding(4);
             this.gcl_result.Name = "gcl_result";
-            this.gcl_result.Size = new System.Drawing.Size(528, 81);
+            this.gcl_result.Size = new System.Drawing.Size(704, 88);
             this.gcl_result.TabIndex = 10;
             this.gcl_result.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvw_result});
@@ -1209,11 +1244,12 @@
             // 
             this.pictureEdit1.Cursor = System.Windows.Forms.Cursors.Default;
             this.pictureEdit1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pictureEdit1.Location = new System.Drawing.Point(0, 163);
+            this.pictureEdit1.Location = new System.Drawing.Point(0, 193);
+            this.pictureEdit1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit1.Properties.ZoomAccelerationFactor = 1D;
-            this.pictureEdit1.Size = new System.Drawing.Size(528, 197);
+            this.pictureEdit1.Size = new System.Drawing.Size(704, 253);
             this.pictureEdit1.TabIndex = 9;
             this.pictureEdit1.Visible = false;
             // 
@@ -1228,29 +1264,32 @@
             this.layoutControl3.Controls.Add(this.btn_huifang);
             this.layoutControl3.Dock = System.Windows.Forms.DockStyle.Top;
             this.layoutControl3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl3.Margin = new System.Windows.Forms.Padding(4);
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1279, 207, 450, 400);
             this.layoutControl3.Root = this.layoutControlGroup3;
-            this.layoutControl3.Size = new System.Drawing.Size(528, 82);
+            this.layoutControl3.Size = new System.Drawing.Size(704, 105);
             this.layoutControl3.TabIndex = 0;
             this.layoutControl3.Text = "layoutControl3";
             // 
             // txtStatus
             // 
-            this.txtStatus.Location = new System.Drawing.Point(12, 12);
+            this.txtStatus.Location = new System.Drawing.Point(16, 16);
+            this.txtStatus.Margin = new System.Windows.Forms.Padding(4);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtStatus.Properties.Appearance.Options.UseFont = true;
-            this.txtStatus.Size = new System.Drawing.Size(504, 28);
+            this.txtStatus.Size = new System.Drawing.Size(672, 37);
             this.txtStatus.StyleController = this.layoutControl3;
             this.txtStatus.TabIndex = 10;
             // 
             // btn_stop
             // 
             this.btn_stop.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btn_stop.Location = new System.Drawing.Point(452, 44);
+            this.btn_stop.Location = new System.Drawing.Point(603, 59);
+            this.btn_stop.Margin = new System.Windows.Forms.Padding(4);
             this.btn_stop.Name = "btn_stop";
-            this.btn_stop.Size = new System.Drawing.Size(64, 26);
+            this.btn_stop.Size = new System.Drawing.Size(85, 30);
             this.btn_stop.TabIndex = 9;
             this.btn_stop.Text = "关闭";
             this.btn_stop.UseVisualStyleBackColor = true;
@@ -1259,9 +1298,10 @@
             // btn_back
             // 
             this.btn_back.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btn_back.Location = new System.Drawing.Point(381, 44);
+            this.btn_back.Location = new System.Drawing.Point(508, 59);
+            this.btn_back.Margin = new System.Windows.Forms.Padding(4);
             this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(67, 26);
+            this.btn_back.Size = new System.Drawing.Size(89, 30);
             this.btn_back.TabIndex = 8;
             this.btn_back.Text = "快进";
             this.btn_back.UseVisualStyleBackColor = true;
@@ -1270,9 +1310,10 @@
             // btn_start
             // 
             this.btn_start.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btn_start.Location = new System.Drawing.Point(312, 44);
+            this.btn_start.Location = new System.Drawing.Point(416, 59);
+            this.btn_start.Margin = new System.Windows.Forms.Padding(4);
             this.btn_start.Name = "btn_start";
-            this.btn_start.Size = new System.Drawing.Size(65, 26);
+            this.btn_start.Size = new System.Drawing.Size(86, 30);
             this.btn_start.TabIndex = 7;
             this.btn_start.Text = "暂停";
             this.btn_start.UseVisualStyleBackColor = true;
@@ -1287,15 +1328,17 @@
             "视频2",
             "视频3",
             "视频4"});
-            this.lue_vedio.Location = new System.Drawing.Point(214, 44);
+            this.lue_vedio.Location = new System.Drawing.Point(285, 59);
+            this.lue_vedio.Margin = new System.Windows.Forms.Padding(4);
             this.lue_vedio.Name = "lue_vedio";
-            this.lue_vedio.Size = new System.Drawing.Size(94, 22);
+            this.lue_vedio.Size = new System.Drawing.Size(125, 26);
             this.lue_vedio.TabIndex = 6;
             // 
             // c_min
             // 
             this.c_min.EditValue = "3";
-            this.c_min.Location = new System.Drawing.Point(132, 44);
+            this.c_min.Location = new System.Drawing.Point(176, 59);
+            this.c_min.Margin = new System.Windows.Forms.Padding(4);
             this.c_min.Name = "c_min";
             this.c_min.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.c_min.Properties.Appearance.Options.UseFont = true;
@@ -1308,16 +1351,17 @@
             "4",
             "5",
             "6"});
-            this.c_min.Size = new System.Drawing.Size(78, 26);
+            this.c_min.Size = new System.Drawing.Size(103, 30);
             this.c_min.StyleController = this.layoutControl3;
             this.c_min.TabIndex = 5;
             // 
             // btn_huifang
             // 
             this.btn_huifang.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btn_huifang.Location = new System.Drawing.Point(12, 44);
+            this.btn_huifang.Location = new System.Drawing.Point(16, 59);
+            this.btn_huifang.Margin = new System.Windows.Forms.Padding(4);
             this.btn_huifang.Name = "btn_huifang";
-            this.btn_huifang.Size = new System.Drawing.Size(116, 26);
+            this.btn_huifang.Size = new System.Drawing.Size(154, 30);
             this.btn_huifang.TabIndex = 4;
             this.btn_huifang.Text = "录像回放";
             this.btn_huifang.UseVisualStyleBackColor = true;
@@ -1337,24 +1381,24 @@
             this.layoutControlItem16});
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "Root";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(528, 82);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(704, 105);
             this.layoutControlGroup3.TextVisible = false;
             // 
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.btn_huifang;
-            this.layoutControlItem10.Location = new System.Drawing.Point(0, 32);
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 43);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(120, 30);
+            this.layoutControlItem10.Size = new System.Drawing.Size(160, 36);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.c_min;
-            this.layoutControlItem11.Location = new System.Drawing.Point(120, 32);
+            this.layoutControlItem11.Location = new System.Drawing.Point(160, 43);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(82, 30);
+            this.layoutControlItem11.Size = new System.Drawing.Size(109, 36);
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextVisible = false;
             // 
@@ -1363,36 +1407,36 @@
             this.layoutControlItem12.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F);
             this.layoutControlItem12.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem12.Control = this.lue_vedio;
-            this.layoutControlItem12.Location = new System.Drawing.Point(202, 32);
+            this.layoutControlItem12.Location = new System.Drawing.Point(269, 43);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(98, 30);
+            this.layoutControlItem12.Size = new System.Drawing.Size(131, 36);
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem12.TextVisible = false;
             // 
             // layoutControlItem13
             // 
             this.layoutControlItem13.Control = this.btn_start;
-            this.layoutControlItem13.Location = new System.Drawing.Point(300, 32);
+            this.layoutControlItem13.Location = new System.Drawing.Point(400, 43);
             this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(69, 30);
+            this.layoutControlItem13.Size = new System.Drawing.Size(92, 36);
             this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem13.TextVisible = false;
             // 
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.btn_back;
-            this.layoutControlItem14.Location = new System.Drawing.Point(369, 32);
+            this.layoutControlItem14.Location = new System.Drawing.Point(492, 43);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(71, 30);
+            this.layoutControlItem14.Size = new System.Drawing.Size(95, 36);
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem14.TextVisible = false;
             // 
             // layoutControlItem15
             // 
             this.layoutControlItem15.Control = this.btn_stop;
-            this.layoutControlItem15.Location = new System.Drawing.Point(440, 32);
+            this.layoutControlItem15.Location = new System.Drawing.Point(587, 43);
             this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(68, 30);
+            this.layoutControlItem15.Size = new System.Drawing.Size(91, 36);
             this.layoutControlItem15.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem15.TextVisible = false;
             // 
@@ -1401,7 +1445,7 @@
             this.layoutControlItem16.Control = this.txtStatus;
             this.layoutControlItem16.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(508, 32);
+            this.layoutControlItem16.Size = new System.Drawing.Size(678, 43);
             this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem16.TextVisible = false;
             // 
@@ -1412,10 +1456,11 @@
             // PM_Bill_MoveTrain_Mats_Form_New
             // 
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(979, 728);
+            this.ClientSize = new System.Drawing.Size(1305, 936);
             this.Controls.Add(this.splitContainerControl1);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "PM_Bill_MoveTrain_Mats_Form_New";
             this.Text = "动轨物资轨道过磅管理";
             this.Load += new System.EventHandler(this.PM_Bill_MoveTrain_Mats_Form_New_Load);

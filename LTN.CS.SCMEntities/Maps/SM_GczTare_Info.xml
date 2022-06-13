@@ -38,7 +38,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
       C_RESERV2
       from sm_gcztare_info where  C_CARNAME = #C_CARNAME#  order by C_CREATETIME desc
     </select>
-    <!--新增-->
+    <!--新增 潘鹏-->
     <select id="selectSM_GczTare_InfoByHt"   parameterClass="HashTable" resultMap="Select_SM_GczTare_InfoResultMap">
       select
       C_CARNAME,
@@ -58,5 +58,6 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
       </isNotEmpty>     
       order by C_CREATETIME asc
     </select>
+   
   </statements>
 </sqlMap>

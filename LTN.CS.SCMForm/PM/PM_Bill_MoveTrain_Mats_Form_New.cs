@@ -133,6 +133,7 @@ namespace LTN.CS.SCMForm.PM
             {
                 if (result.Count != 0)
                 {
+                    int num = 0;
                     List<PM_Pond_Bill_Supplies> data = result.ToList();
                     data.ForEach(r =>
                     {
@@ -143,6 +144,10 @@ namespace LTN.CS.SCMForm.PM
                         if (r.TareWgtTime != null)
                         {
                             r.TareWgtTime = CommonHelper.Str14ToTimeFormart(r.TareWgtTime);
+                        }
+                        if (r.TareWgt == 0 && r.NetWgt == 0)
+                        {
+                            //gvw_pond.GetRow[num]
                         }
                     });
                 }
@@ -194,10 +199,12 @@ namespace LTN.CS.SCMForm.PM
             if (poundtrainmats.TareWgt > 0 && poundtrainmats.NetWgt > 0 && poundtrainmats.GrossWgt > 0)
             {
                 poundtrainmats.BillStatus = new BillStatusObj { IntValue = (int)BillStatus.DoneMeasure };
+                supplies.BillStatus = new BillStatusObj { IntValue = (int)BillStatus.DoneMeasure };
             }
             else
             {
-                poundtrainmats.BillStatus = new BillStatusObj { IntValue = (int)BillStatus.StareMeasure };   
+                poundtrainmats.BillStatus = new BillStatusObj { IntValue = (int)BillStatus.StareMeasure };
+                supplies.BillStatus = new BillStatusObj { IntValue = (int)BillStatus.StareMeasure };
             }                     
             poundtrainmats.CreateUser = SessionHelper.LogUserNickName;
             poundtrainmats.UpdateUser = SessionHelper.LogUserNickName;
@@ -221,7 +228,8 @@ namespace LTN.CS.SCMForm.PM
             //poundtrainmats.TareWgtTime = CommonHelper.TimeToStr14(date);
             var res = pondsupperservice.ExecuteDB_UpdateSuppliesInfo(poundtrainmats);
 
-            supplies.BillStatus = new BillStatusObj { IntValue = (int)BillStatus.DoneMeasure };
+            //根据实际情况进行修改
+            //supplies.BillStatus = new BillStatusObj { IntValue = (int)BillStatus.DoneMeasure };
             supplies.UpdateUser = SessionHelper.LogUserNickName;
             var bs = matsService.ExecuteDB_UpdateSuppliesInfo(supplies);
         }
@@ -510,9 +518,9 @@ namespace LTN.CS.SCMForm.PM
                             foreach (var rowNum in rows)
                             {
                                 PM_RawData_MoveTrain updateEntity = gvw_main.GetRow(rowNum) as PM_RawData_MoveTrain;
-                                if (updateEntity.WeightData <= 60)
+                                if (updateEntity.WeightData <= 50)
                                 {
-                                    var zl = MessageDxUtil.ShowYesNoAndTips("本次有重量小于60！！！");
+                                    var zl = MessageDxUtil.ShowYesNoAndTips("本次有重量小于50！！！");
                                     if (zl == DialogResult.No)
                                     {
                                         return;
@@ -908,22 +916,53 @@ namespace LTN.CS.SCMForm.PM
                 if (rows.Length != 0 && row.Length != 0)
                 {
                     List<string> list1 = new List<string>();
+                    List<string> list2 = new List<string>();
+                    List<string> list3 = new List<string>();
                     foreach (var items in rows)
-                    {
+                    {                    
                         PM_Pond_Bill_Supplies poundtrainmats = gvw_pond.GetRow(items) as PM_Pond_Bill_Supplies;
+                        List<PM_Bill_Supplies> list = new List<PM_Bill_Supplies>();
                         foreach (var item in row)
                         {
                             PM_Bill_Supplies supplies = gvw_result.GetRow(item) as PM_Bill_Supplies;
                             if (poundtrainmats.BillStatus.IntValue != 2 && poundtrainmats.WagNo == supplies.WagNo)
                             {
-                                mapping(poundtrainmats, supplies);
-                            }
+                                list.Add(supplies);                               
+                                //mapping(poundtrainmats, supplies);
+                            }                        
+                        }
+                        if (list.Count == 1)
+                        {                            
+                            mapping(poundtrainmats, list[0]);
+                        }
+                        else if(list.Count == 0)
+                        {
+                            list2.Add(poundtrainmats.WagNo);
+                            //MessageDxUtil.ShowTips(poundtrainmats.WagNo + "该车号查询到多个委托，请手动核实");
+                            continue;
+                        }
+                        else
+                        {
+                            list3.Add(poundtrainmats.WagNo);
+                            continue;
                         }
                         string car = String.Format("'{0}'", poundtrainmats.WagNo);
                         list1.Add(car);
                     }
-                    MessageDxUtil.ShowTips("匹配完成！");
+                    
                     string s = string.Join(",", list1.ToArray());
+                    if (list2.Count > 0 || list3.Count > 0)
+                    {
+                        string noChecked = string.Join(",", list2.ToArray());
+                        string needCheck = string.Join(",", list3.ToArray());
+                        //后续根据实际需求看是否提示有哪些车
+                        //MessageDxUtil.ShowTips("匹配完成!"+'\n'+noChecked+"无匹配计划"+'\n'+needCheck+"有多条计划需核实");
+                        MessageDxUtil.ShowTips("匹配完成!" + '\n' + list2.Count + "车无匹配计划" + '\n' + list3.Count + "车需核实计划");
+                    }
+                    else
+                    {
+                        MessageDxUtil.ShowTips("匹配完成！");
+                    }
                     getPond(formationtag);
                     var iron = matsService.ExecuteDB_QueryIronByCarNo(s);
                     gcl_result.DataSource = iron;
@@ -949,18 +988,25 @@ namespace LTN.CS.SCMForm.PM
             }
             else
             {
+                //检查勾选的磅单中是否存在已经匹配了委托的
+                if (chenkPondPlan(rows) == false)
+                {
+                    MessageDxUtil.ShowError("勾选的该批量数据中存在已经匹配了委托的磅单"+'\n'+"请重新操作");
+                    return;
+                }
+                    
                 List<string> list = new List<string>();
                 List<PM_Pond_Bill_Supplies> pondList = new List<PM_Pond_Bill_Supplies>();
                 foreach (var items in rows)
                 {
-                    PM_Pond_Bill_Supplies poundtrainmats = gvw_pond.GetRow(items) as PM_Pond_Bill_Supplies;
+                    PM_Pond_Bill_Supplies poundtrainmats = gvw_pond.GetRow(items) as PM_Pond_Bill_Supplies;                    
                     Hashtable ht = new Hashtable();
                     ht.Add("siteNo", lue_SiteNo.EditValue);                    
                     ht.Add("carName", poundtrainmats.WagNo);
                     string grossWgtTime = poundtrainmats.GrossWgtTime;
                     //这个时间段在上线之前再调整为前后两分钟
-                    DateTime time1 = Convert.ToDateTime(grossWgtTime).AddMinutes(-4);
-                    DateTime time2 = Convert.ToDateTime(grossWgtTime).AddMinutes(4);
+                    DateTime time1 = Convert.ToDateTime(grossWgtTime).AddMinutes(-2);
+                    DateTime time2 = Convert.ToDateTime(grossWgtTime).AddMinutes(2);
                     ht.Add("startTime", time1.ToString("yyyyMMddHHmmss"));
                     ht.Add("endTime", time2.ToString("yyyyMMddHHmmss"));
                     IList<SM_GczTare_Info> tareList = gczService.ExecuteDB_QueryGczTareForMatch(ht);                    
@@ -974,13 +1020,8 @@ namespace LTN.CS.SCMForm.PM
                         if (tareList.Count == 1)
                         {
                             SM_GczTare_Info tare = tareList[0];
-                            poundtrainmats.TareWgt = tare.C_TAREWEIGHT;
-                            poundtrainmats.TareWgtTime = tare.C_CREATETIME.ToString("yyyyMMddHHmmss");
-                            poundtrainmats.TareWgtSiteNo = tare.C_SITENO;
-                            poundtrainmats.TareWgtSiteName = lue_SiteNo.Text;
-                            poundtrainmats.TareWgtMan = SessionHelper.LogUserNickName.ToString();
-                            poundtrainmats.NetWgt = Convert.ToDecimal(poundtrainmats.GrossWgt) - Convert.ToDecimal(poundtrainmats.TareWgt);
-                            poundtrainmats.NetWgtTime = poundtrainmats.TareWgtTime;                                                                               
+                            
+                            poundtrainmats = matchTareWeight(poundtrainmats, tare);                                                                                                   
                         }
                         else
                         {
@@ -990,13 +1031,7 @@ namespace LTN.CS.SCMForm.PM
                                 {
                                     continue;
                                 }
-                                poundtrainmats.TareWgt = tare.C_TAREWEIGHT;
-                                poundtrainmats.TareWgtTime = tare.C_CREATETIME.ToString("yyyyMMddHHmmss");
-                                poundtrainmats.TareWgtSiteNo = tare.C_SITENO;
-                                poundtrainmats.TareWgtSiteName = lue_SiteNo.Text;
-                                poundtrainmats.TareWgtMan = SessionHelper.LogUserNickName.ToString();
-                                poundtrainmats.NetWgt = Convert.ToDecimal(poundtrainmats.GrossWgt) - Convert.ToDecimal(poundtrainmats.TareWgt);
-                                poundtrainmats.NetWgtTime = poundtrainmats.TareWgtTime;                                
+                                poundtrainmats = matchTareWeight(poundtrainmats, tare);                               
                             }
                         }
                         DateTime time = new DateTime();
@@ -1022,8 +1057,7 @@ namespace LTN.CS.SCMForm.PM
                     MessageDxUtil.ShowTips("皮重匹配完成");
                 }
                 getPond(formationtag);
-            }
-            
+            }            
         }
         /// <summary>
         /// 保存磅单
@@ -1060,14 +1094,12 @@ namespace LTN.CS.SCMForm.PM
                         tare.CreateUser = SessionHelper.LogUserNickName;
                         tare.UpdateUser = SessionHelper.LogUserNickName;
                         var rq = tareService.ExecuteDB_InsertTareInfo(tare);
-
                         matchPlan(poundtrainmats, list);
                     }
                     else
                     {
                         MessageDxUtil.ShowTips(poundtrainmats.WagNo + "该车号请输入皮重重量！");
                     }
-
                     if (list.Count > 0)
                     {
                         string s = string.Join(",", list.ToArray());
@@ -1627,6 +1659,11 @@ namespace LTN.CS.SCMForm.PM
 
 
         #endregion
+        /// <summary>
+        /// 该方法中检查皮重是否满足匹配要求：1.只识别到一个不为0的皮重2.识别到两个皮重但其中一个为0；3.该皮重和历史皮重相比相差不超过0.1吨
+        /// </summary>
+        /// <param name="tareList"></param>
+        /// <returns></returns>
         private bool checkTareList(IList<SM_GczTare_Info> tareList)
         {
             bool flag = false;
@@ -1636,7 +1673,10 @@ namespace LTN.CS.SCMForm.PM
                 {
                     if (Convert.ToDecimal(tareList[0].C_TAREWEIGHT) > 0)
                     {
-                        flag = true;
+                        if (checkTareHistory(tareList[0]))
+                        {
+                            flag = true;
+                        }                 
                     }
                 }
                 else if (tareList.Count == 2)
@@ -1644,14 +1684,106 @@ namespace LTN.CS.SCMForm.PM
                     //只有一个重量为0
                     Decimal weight1 = Convert.ToDecimal(tareList[0].C_TAREWEIGHT);
                     Decimal weight2 = Convert.ToDecimal(tareList[1].C_TAREWEIGHT);
+                    /*
                     if ((weight1 == 0 || weight2 == 0) && (weight1 + weight2 > 0))
                     {
                         flag = true;
+                    }
+                    */
+                    if(weight1 == 0 && weight2 > 0)
+                    {
+                        if (checkTareHistory(tareList[1]))
+                        {
+                            flag = true;
+                        }
+                    }else if( weight1 > 0 && weight2 == 0)
+                    {
+                        if (checkTareHistory(tareList[2]))
+                        {
+                            flag = true;
+                        }
+
                     }
                 }
             }
             return flag;
         }
-      
+        /// <summary>
+        /// 当前皮重与历史皮重平均值比较
+        /// </summary>
+        /// <param name="tare"></param>
+        /// <returns></returns>
+        private bool checkTareHistory(SM_GczTare_Info tare)
+        {
+            bool flag = false;
+            string carName = tare.C_CARNAME;
+            Hashtable ht = new Hashtable();
+            ht.Add("carName", carName);
+            IList<PM_Pond_Bill_Supplies> bills = pondsupperservice.ExecuteDB_QueryHistoryByWagNo(ht);
+            if (bills.Count > 0)
+            {
+                decimal num = 0;
+                foreach (PM_Pond_Bill_Supplies bill in bills)
+                {
+                    num += bill.TareWgt;
+                }
+                if (Convert.ToDouble(num / bills.Count) - Convert.ToDouble(tare.C_TAREWEIGHT) < 0.1)
+                {
+                    flag = true;
+                }
+            }
+            else
+            {
+                flag = true;
+            }
+            return flag;
+        }
+        private bool chenkPondPlan(int[] rows)
+        {
+            bool flag = true;
+            foreach (var items in rows)
+            {
+                PM_Pond_Bill_Supplies pm = gvw_pond.GetRow(items) as PM_Pond_Bill_Supplies;
+                if (pm.PlanNo != null && !string.IsNullOrEmpty(pm.PlanNo))
+                {
+                    flag = false;
+                    break;
+                }
+            }
+            return flag;
+        }
+        //新增
+        private void gvw_Pond_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {           
+            //列名为 gridColumn2的单元列
+            if (e.Column.Name == "gridColumn10" || e.Column.Name == "gridColumn11")
+            {
+                var v = e.CellValue;
+                if (v != null)
+                {
+                    if (Convert.ToDecimal(v.ToString()) <= 0)
+                    {
+                        e.Appearance.BackColor = Color.Red;
+                    }
+                }
+            }
+        }
+        /// <summary>
+        /// 修改    6-5-222
+        /// </summary>
+        /// <param name="poundtrainmats"></param>
+        /// <param name="tare"></param>
+        /// <returns></returns>
+        private PM_Pond_Bill_Supplies matchTareWeight(PM_Pond_Bill_Supplies poundtrainmats, SM_GczTare_Info tare)
+        {
+            poundtrainmats.TareWgt = tare.C_TAREWEIGHT;
+            poundtrainmats.TareWgtTime = tare.C_CREATETIME.ToString("yyyyMMddHHmmss");
+            poundtrainmats.TareWgtSiteNo = tare.C_SITENO;
+            poundtrainmats.TareWgtSiteName = lue_SiteNo.Text;
+            poundtrainmats.TareWgtMan = SessionHelper.LogUserNickName.ToString();
+            poundtrainmats.NetWgt = Convert.ToDecimal(poundtrainmats.GrossWgt) - Convert.ToDecimal(poundtrainmats.TareWgt);
+            poundtrainmats.NetWgtTime = DateTime.Now.ToString("yyyyMMddHHmmss");
+            return poundtrainmats;            
+        }      
     }
 }
