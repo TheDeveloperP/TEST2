@@ -3522,8 +3522,8 @@ namespace LTN.CS.SCMForm.PM
                     {
                         if (PondDataBufferLocal.PondHardInfoForSite.MeterOneWeight >= 49000)
                         {
-                            MessageBox.Show(txt_MaterName.Text.Trim() + "该品名重车不能超过49吨，不允许称重!");
-                            ShowTxtLog(txt_MaterName.Text.Trim() + "该品名重车不能超过49吨，不允许称重!");
+                            MessageBox.Show(txt_MaterName.Text.Trim() + "该品名重车出厂不能超过49吨，不允许称重!");
+                            ShowTxtLog(txt_MaterName.Text.Trim() + "该品名重车出厂不能超过49吨，不允许称重!");
                             return;
 
                         }
@@ -3532,8 +3532,8 @@ namespace LTN.CS.SCMForm.PM
                     {
                         if (PondDataBufferLocal.PondHardInfoForSite.MeterOneWeight >= 49000)
                         {                            
-                            ShowTxtLog(txt_MaterName.Text.Trim() + "该品名重车超过了49吨，过磅请注意!");                            
-                            DialogResult rs = MessageBox.Show(txt_MaterName.Text.Trim() + "该品名重车超过了49吨，是否取消过磅？", DialogStr, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                            ShowTxtLog(txt_MaterName.Text.Trim() + "该品名重车进厂超过了49吨，过磅请注意!");                            
+                            DialogResult rs = MessageBox.Show(txt_MaterName.Text.Trim() + "该品名重车进厂超过了49吨，是否取消过磅？", DialogStr, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                             if (rs == DialogResult.Yes)
                             {
                                 return;
