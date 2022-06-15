@@ -133,7 +133,7 @@ namespace LTN.CS.SCMForm.PM
             {
                 if (result.Count != 0)
                 {
-                    int num = 0;
+                    //int num = 0;
                     List<PM_Pond_Bill_Supplies> data = result.ToList();
                     data.ForEach(r =>
                     {
@@ -145,10 +145,12 @@ namespace LTN.CS.SCMForm.PM
                         {
                             r.TareWgtTime = CommonHelper.Str14ToTimeFormart(r.TareWgtTime);
                         }
+                        /*
                         if (r.TareWgt == 0 && r.NetWgt == 0)
                         {
                             //gvw_pond.GetRow[num]
                         }
+                        */
                     });
                 }
                 gcl_pond.DataSource = result;
