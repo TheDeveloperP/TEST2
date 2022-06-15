@@ -14,5 +14,6 @@ namespace LTN.CS.SCMEntities.PM
         public string Printer { get; set; }//打印人
         public string PrintTime { get; set; }//打印时间
         public string WagNo { get; set; }//车皮号
+        public int PrintNum { get; set; }//打印次数
     }
 }

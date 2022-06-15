@@ -58,6 +58,16 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
       </isNotEmpty>     
       order by C_CREATETIME asc
     </select>
-   
+    
+    <select id="selectSM_GczTare_InfoByWgtNo1"   parameterClass="string" resultMap="Select_SM_GczTare_InfoResultMap">
+      SELECT
+      *
+      FROM
+      (SELECT *
+      FROM SM_GCZTARE_INFO
+      WHERE C_CARNAME = #C_CARNAME# AND C_TAREWEIGHT !=0
+      ORDER BY C_CREATETIME DESC)
+      WHERE ROWNUM != 4
+    </select>
   </statements>
 </sqlMap>
