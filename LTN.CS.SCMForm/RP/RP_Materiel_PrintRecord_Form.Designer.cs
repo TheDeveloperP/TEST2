@@ -40,13 +40,15 @@
             this.date_EndTime = new DevExpress.XtraEditors.DateEdit();
             this.date_StartTime = new DevExpress.XtraEditors.DateEdit();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutViewCard1 = new DevExpress.XtraGrid.Views.Layout.LayoutViewCard();
-            this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_WagNo.Properties)).BeginInit();
@@ -76,7 +78,7 @@
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(4);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1466, 100);
+            this.panelControl1.Size = new System.Drawing.Size(938, 100);
             this.panelControl1.TabIndex = 0;
             // 
             // labelControl4
@@ -94,10 +96,12 @@
             // 
             // txt_WagNo
             // 
-            this.txt_WagNo.Location = new System.Drawing.Point(393, 46);
+            this.txt_WagNo.Location = new System.Drawing.Point(393, 42);
             this.txt_WagNo.Margin = new System.Windows.Forms.Padding(4);
             this.txt_WagNo.Name = "txt_WagNo";
-            this.txt_WagNo.Size = new System.Drawing.Size(204, 20);
+            this.txt_WagNo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_WagNo.Properties.Appearance.Options.UseFont = true;
+            this.txt_WagNo.Size = new System.Drawing.Size(204, 26);
             this.txt_WagNo.TabIndex = 7;
             this.txt_WagNo.EditValueChanged += new System.EventHandler(this.txt_WagNo_EditValueChanged);
             // 
@@ -116,10 +120,12 @@
             // txt_WgtlistNo
             // 
             this.txt_WgtlistNo.EditValue = "";
-            this.txt_WgtlistNo.Location = new System.Drawing.Point(69, 45);
+            this.txt_WgtlistNo.Location = new System.Drawing.Point(69, 41);
             this.txt_WgtlistNo.Margin = new System.Windows.Forms.Padding(4);
             this.txt_WgtlistNo.Name = "txt_WgtlistNo";
-            this.txt_WgtlistNo.Size = new System.Drawing.Size(204, 20);
+            this.txt_WgtlistNo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_WgtlistNo.Properties.Appearance.Options.UseFont = true;
+            this.txt_WgtlistNo.Size = new System.Drawing.Size(204, 26);
             this.txt_WgtlistNo.TabIndex = 5;
             this.txt_WgtlistNo.EditValueChanged += new System.EventHandler(this.txt_WgtlistNo_EditValueChanged);
             // 
@@ -163,9 +169,11 @@
             // date_EndTime
             // 
             this.date_EndTime.EditValue = null;
-            this.date_EndTime.Location = new System.Drawing.Point(1074, 46);
+            this.date_EndTime.Location = new System.Drawing.Point(1074, 44);
             this.date_EndTime.Margin = new System.Windows.Forms.Padding(4);
             this.date_EndTime.Name = "date_EndTime";
+            this.date_EndTime.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date_EndTime.Properties.Appearance.Options.UseFont = true;
             this.date_EndTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.date_EndTime.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -175,16 +183,18 @@
             this.date_EndTime.Properties.EditFormat.FormatString = "{0:yyyy-MM-dd HH:mm:ss}";
             this.date_EndTime.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.date_EndTime.Properties.Mask.EditMask = "yyyy-MM-dd HH:mm:ss";
-            this.date_EndTime.Size = new System.Drawing.Size(189, 20);
+            this.date_EndTime.Size = new System.Drawing.Size(189, 26);
             this.date_EndTime.TabIndex = 1;
             this.date_EndTime.EditValueChanged += new System.EventHandler(this.date_EndTime_EditValueChanged);
             // 
             // date_StartTime
             // 
             this.date_StartTime.EditValue = null;
-            this.date_StartTime.Location = new System.Drawing.Point(751, 46);
+            this.date_StartTime.Location = new System.Drawing.Point(751, 42);
             this.date_StartTime.Margin = new System.Windows.Forms.Padding(4);
             this.date_StartTime.Name = "date_StartTime";
+            this.date_StartTime.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date_StartTime.Properties.Appearance.Options.UseFont = true;
             this.date_StartTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.date_StartTime.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -194,7 +204,7 @@
             this.date_StartTime.Properties.EditFormat.FormatString = "{0:yyyy-MM-dd HH:mm:ss}";
             this.date_StartTime.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.date_StartTime.Properties.Mask.EditMask = "yyyy-MM-dd HH:mm:ss";
-            this.date_StartTime.Size = new System.Drawing.Size(204, 20);
+            this.date_StartTime.Size = new System.Drawing.Size(204, 26);
             this.date_StartTime.TabIndex = 0;
             this.date_StartTime.EditValueChanged += new System.EventHandler(this.date_StartTime_EditValueChanged);
             // 
@@ -207,7 +217,7 @@
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Margin = new System.Windows.Forms.Padding(4);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1466, 705);
+            this.gridControl1.Size = new System.Drawing.Size(938, 342);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -216,34 +226,36 @@
             // 
             // gridView1
             // 
-            this.gridView1.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridView1.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 12F);
             this.gridView1.Appearance.FocusedRow.Options.UseFont = true;
-            this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 12F);
             this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
-            this.gridView1.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridView1.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F);
             this.gridView1.Appearance.Row.Options.UseFont = true;
-            this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
             this.gridColumn3,
-            this.gridColumn4});
+            this.gridColumn4,
+            this.gridColumn5,
+            this.gridColumn6});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // gridColumn1
             // 
-            this.gridColumn1.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn1.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
             this.gridColumn1.AppearanceCell.Options.UseFont = true;
-            this.gridColumn1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 12F);
             this.gridColumn1.AppearanceHeader.Options.UseFont = true;
             this.gridColumn1.Caption = "磅单号";
             this.gridColumn1.FieldName = "WgtlistNo";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 227;
+            this.gridColumn1.Width = 185;
             // 
             // gridColumn2
             // 
@@ -252,7 +264,7 @@
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 226;
+            this.gridColumn2.Width = 187;
             // 
             // gridColumn3
             // 
@@ -261,7 +273,7 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
-            this.gridColumn3.Width = 226;
+            this.gridColumn3.Width = 186;
             // 
             // gridColumn4
             // 
@@ -270,12 +282,30 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
-            this.gridColumn4.Width = 226;
+            this.gridColumn4.Width = 80;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "打印时间";
+            this.gridColumn5.FieldName = "PrintTime";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 4;
+            this.gridColumn5.Width = 174;
             // 
             // layoutViewCard1
             // 
             this.layoutViewCard1.HeaderButtonsLocation = DevExpress.Utils.GroupElementLocation.AfterText;
             this.layoutViewCard1.Name = "layoutViewCard1";
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "打印次数";
+            this.gridColumn6.FieldName = "PrintNum";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 5;
+            this.gridColumn6.Width = 102;
             // 
             // RP_Materiel_PrintRecord_Form
             // 
@@ -283,12 +313,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = false;
-            this.ClientSize = new System.Drawing.Size(1466, 805);
+            this.ClientSize = new System.Drawing.Size(938, 442);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.panelControl1);
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "RP_Materiel_PrintRecord_Form";
-            this.Text = "报表打印记录";
+            this.Text = "物资衡报表打印记录";
             this.Load += new System.EventHandler(this.RP_Materiel_PrintRecord_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
@@ -326,5 +356,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.Utils.ToolTipController toolTipController1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
     }
 }

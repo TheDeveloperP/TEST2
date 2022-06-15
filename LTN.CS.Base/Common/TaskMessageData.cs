@@ -81,6 +81,10 @@ namespace LTN.CS.Base.Common
         /// </summary>
         public string StringData16 { get; set; }
         
-        
+        //新增  - 潘鹏
+        /// <summary>
+        /// 航次号
+        /// </summary>
+        public string StringData17 { get; set; }
     }
 }

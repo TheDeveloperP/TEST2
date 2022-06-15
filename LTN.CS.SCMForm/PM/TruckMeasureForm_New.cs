@@ -2441,6 +2441,30 @@ namespace LTN.CS.SCMForm.PM
                 ShowTxtLog(ex.Message);
             }
         }
+        private void CheckLastWeightTime1(ref bool isMoreThan)
+        {
+            try
+            {
+                IList<PM_Bill_Truck> billList = billTruckService.ExecuteDB_QueryLatestPM_Bill_TruckByCarNo1(carName);
+                if (billList != null && billList.Count > 0)
+                {
+                    DateTime dateNow = Convert.ToDateTime(DateTime.Now);
+                    if (dateNow != null)
+                    {
+                        DateTime dateLastTime = Convert.ToDateTime(CommonHelper.Str14ToTimeFormart(billList[0].C_GROSSWGTTIME));
+                        TimeSpan ts = dateNow - dateLastTime;
+                        if (ts.TotalMinutes > 2880)
+                        {
+                            isMoreThan = true;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ShowTxtLog(ex.Message);
+            }
+        }
         private string getWglistNo(string siteNo)
         {
             string date = blackService.ExecuteDB_GetDBTimeNow().ToString("yyyyMMddHHmmss");
@@ -3394,7 +3418,7 @@ namespace LTN.CS.SCMForm.PM
                 }
                  * */
                 //进厂的 白云石粉 超过100吨  不允许过磅
-               
+
                 if (txt_MaterName.Text.Trim() == "白云石粉" && PondDataBufferLocal.PondHardInfoForSite.MeterOneWeight > 100000 && radioButton2.Checked == true)
                 {
                     MessageBox.Show("白云石粉进厂业务不能超过100吨，不允许称重，请结束任务");
@@ -3420,11 +3444,12 @@ namespace LTN.CS.SCMForm.PM
                             SpeakTxtLog("该车皮重与历史记录均值差值大于500千克");
                             MessageBox.Show("该车皮重与历史记录均值差值大于500千克");
                             isExceed = 1;
-                         }
+                        }
                     }
                 }
                 bool isBlack = false;
                 bool isLessThan = false;
+                bool isMoreThan = false;
                 if (string.IsNullOrEmpty(txt_CarNoSelect.Text.ToUpper().Trim()))
                 {
                     MessageBox.Show("车号不允许为空!");
@@ -3452,6 +3477,13 @@ namespace LTN.CS.SCMForm.PM
                 {
                     MessageBox.Show("上次称重时间距离本次计量时间小于5分钟");
                     ShowTxtLog("上次称重时间距离本次计量时间小于5分钟");
+                }
+                //李佳政
+                CheckLastWeightTime1(ref isMoreThan);
+                if (isMoreThan)
+                {
+                    MessageBox.Show("回皮时间超过2天");
+                    //ShowTxtLog("回皮时间超过2天");
                 }
                 switch (logic)
                 {
@@ -3515,49 +3547,17 @@ namespace LTN.CS.SCMForm.PM
                     return;
                 }
                 carName = txt_CarNoSelect.Text.ToUpper().Trim();
-
+                
                 if (txt_MaterName.Text.Trim() == "煤焦油" || txt_MaterName.Text.Trim() == "粗苯" || txt_MaterName.Text.Trim() == "硫磺" || txt_MaterName.Text.Trim() == "焦化浓氨水")
                 {
-                    if (radioButton3.Checked == true)
+                    if (PondDataBufferLocal.PondHardInfoForSite.MeterOneWeight >= 49000)
                     {
-                        if (PondDataBufferLocal.PondHardInfoForSite.MeterOneWeight >= 49000)
-                        {
-                            MessageBox.Show(txt_MaterName.Text.Trim() + "该品名重车出厂不能超过49吨，不允许称重!");
-                            ShowTxtLog(txt_MaterName.Text.Trim() + "该品名重车出厂不能超过49吨，不允许称重!");
-                            return;
+                        MessageBox.Show(txt_MaterName.Text.Trim() + "该品名重车不能超过49吨，不允许称重!");
+                        ShowTxtLog(txt_MaterName.Text.Trim() + "该品名重车不能超过49吨，不允许称重!");
+                        return;
+                    }
+                }
 
-                        }
-                    }
-                    else
-                    {
-                        if (PondDataBufferLocal.PondHardInfoForSite.MeterOneWeight >= 49000)
-                        {                            
-                            ShowTxtLog(txt_MaterName.Text.Trim() + "该品名重车进厂超过了49吨，过磅请注意!");                            
-                            DialogResult rs = MessageBox.Show(txt_MaterName.Text.Trim() + "该品名重车进厂超过了49吨，是否取消过磅？", DialogStr, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-                            if (rs == DialogResult.Yes)
-                            {
-                                return;
-                            }
-                        }
-                    }
-                    
-                }
-                /*
-                if (txt_MaterName.Text.Trim() == "煤焦油" || txt_MaterName.Text.Trim() == "粗苯" || txt_MaterName.Text.Trim() == "硫磺" || txt_MaterName.Text.Trim() == "焦化浓氨水")
-                {
-                    if (PondDataBufferLocal.PondHardInfoForSite.MeterOneWeight > 52000)
-                    {
-                        //MessageBox.Show(txt_MaterName.Text.Trim() + "该品名重车不能超过52吨，不允许称重!");
-                        ShowTxtLog(txt_MaterName.Text.Trim() + "该品名重车不能超过52吨，不允许称重!请取消过磅");
-                        DialogResult rs = MessageBox.Show(txt_MaterName.Text.Trim() + "该品名重车不能超过52吨，不允许称重!是否取消过磅？", DialogStr, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-                        if (rs == DialogResult.Yes)
-                        {
-                            return;
-                        }
-                        //return;
-                    }
-                }
-                */
 
                 //判断车辆是否黑名单
                 CheckBlackCar(ref isBlack);
@@ -3749,6 +3749,7 @@ namespace LTN.CS.SCMForm.PM
                 data.StringData5 = billTruck.N_GROSSWGT.ToString();
                 data.StringData6 = CommonHelper.Str14ToTimeFormart(billTruck.C_GROSSWGTTIME).Substring(5);
                 data.StringData7 = billTruck.N_TAREWGT.ToString();
+               
                 if (billTruck.C_TAREWGTTIME == null || billTruck.N_TAREWGT == 0)
                 {
                     data.StringData8 = string.Empty;
@@ -3778,6 +3779,8 @@ namespace LTN.CS.SCMForm.PM
                 }
                 data.StringData13 = billTruck.C_REMARK;
                 data.StringData16 = billTruck.C_CONTRACTNO;
+                //新增航次号打印
+                data.StringData17 = billTruck.C_RESERVE1;
                 //新增对打印机的选择信息
 
                 string dataStr = MyJsonHelper.SerializeObject<TaskMessageData>(data);
