@@ -332,14 +332,10 @@
     <property name="MainService" ref="PM_BeltHandlerService"></property>
     <property name="PT_BeltScalePlanService" ref="PT_BeltScalePlanService"></property>
   </object>
-  <!--李佳政 物资磅单历史记录-->
   <object id="PM_027" type="LTN.CS.SCMForm.PM.PM_Pond_Bill_Supplies_History_Form,LTN.CS.SCMForm"  singleton="false"  >
     <property name="MainService" ref="PM_Pond_Bill_Supplies_HistoryService"></property>
   </object>
-  <!--李佳政 铁水轨道衡磅单历史记录-->
-  <object id="PM_028" type="LTN.CS.SCMForm.PM.PM_Pond_Bill_Iron_History_From,LTN.CS.SCMForm"  singleton="false"  >
-    <property name="MainService" ref="PM_Pond_Bill_Iron_HistoryService"></property>
-  </object>
+
   
   <object id="RP_001" type="LTN.CS.SCMForm.RP.RP_Materiel_Report,LTN.CS.SCMForm"  singleton="false"  >    
     <property name="MainService" ref="PM_Pond_Bill_SuppliesService"></property>

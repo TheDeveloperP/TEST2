@@ -64,19 +64,5 @@ namespace LTN.CS.SCMService.CS.Implement
             return rs;
         }
 
-        public IList<SM_GczTare_Info> ExecuteDB_QueryGczTareHistory(string ht)
-        {
-            IList<SM_GczTare_Info> rs;
-            try
-            {
-                rs = CommonDao.ExecuteQueryForList<SM_GczTare_Info>("selectSM_GczTare_InfoByWgtNo1", ht);
-            }
-            catch (Exception ex)
-            {
-                log.Error(ex.Message);
-                rs = null;
-            }
-            return rs;
-        }
     }
 }

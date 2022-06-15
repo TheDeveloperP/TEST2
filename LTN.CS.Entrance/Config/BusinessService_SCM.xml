@@ -22,10 +22,6 @@
   <object id="PM_Pond_Bill_IronService" type="LTN.CS.SCMService.PM.Implement.PM_Pond_Bill_IronServiceImpl,LTN.CS.SCMService"  singleton="false" >
     <property  name="CommonDao"  ref="CommonDao"></property>
   </object>
-  <!--李佳政 铁水轨道衡磅单历史记录-->
-  <object id="PM_Pond_Bill_Iron_HistoryService" type="LTN.CS.SCMService.PM.Implement.PM_Pond_Bill_Iron_HistoryServiceImpl,LTN.CS.SCMService"  singleton="false" >
-    <property  name="CommonDao"  ref="CommonDao"></property>
-  </object>
   <object id="PM_Bill_TruckService" type="LTN.CS.SCMService.PM.Implement.PM_Bill_TruckServiceImpl,LTN.CS.SCMService"  singleton="false" >
     <property  name="CommonDao"  ref="CommonDao"></property>
   </object>
@@ -35,7 +31,6 @@
   <object id="PM_Pond_Bill_SuppliesService" type="LTN.CS.SCMService.PM.Implement.PM_Pond_Bill_SuppliesServiceImpl,LTN.CS.SCMService"  singleton="false" >
     <property  name="CommonDao"  ref="CommonDao"></property>
   </object>
-  <!--李佳政 物资磅单历史记录-->
   <object id="PM_Pond_Bill_Supplies_HistoryService" type="LTN.CS.SCMService.PM.Implement.PM_Pond_Bill_Supplies_HistoryServiceImpl,LTN.CS.SCMService"  singleton="false" >
     <property  name="CommonDao"  ref="CommonDao"></property>
   </object>

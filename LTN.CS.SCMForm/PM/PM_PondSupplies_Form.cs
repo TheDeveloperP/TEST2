@@ -574,35 +574,6 @@ namespace LTN.CS.SCMForm.PM
             catch (Exception)
             {
             }
-            //李佳政
-            try
-            {
-                if (!string.IsNullOrEmpty(txt_WagNo.Text.Trim()))
-                {
-                    IList<SM_GczTare_Info> CarNameDatas = gczService.ExecuteDB_QueryGczTareHistory(txt_WagNo.Text.Trim());
-                    if (CarNameDatas.Count >= 2 && CarNameDatas != null)
-                    {
-                        decimal sum = 0;
-                        decimal avr = 0;
-                        for (var i = 0; i < CarNameDatas.Count; i++)
-                        {
-                            sum += CarNameDatas[i].C_TAREWEIGHT;
-                        }
-                        avr = (sum / CarNameDatas.Count)*1000;
-                        if (Convert.ToDouble(txt_TareWgt.Text) > 0)
-                        {
-                            if ((Math.Abs(avr - (MyNumberHelper.ConvertToDecimal(txt_TareWgt.Text))*1000)) > 100)
-                            {
-                                MessageBox.Show("与历史记录均值差值大于100千克");
-
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception)
-            {
-            }
         }
 
         private void gvw_result_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
