@@ -3539,26 +3539,9 @@ namespace LTN.CS.SCMForm.PM
                                 return;
                             }
                         }
-                    }
-                    
+                    }                    
                 }
-                /*
-                if (txt_MaterName.Text.Trim() == "煤焦油" || txt_MaterName.Text.Trim() == "粗苯" || txt_MaterName.Text.Trim() == "硫磺" || txt_MaterName.Text.Trim() == "焦化浓氨水")
-                {
-                    if (PondDataBufferLocal.PondHardInfoForSite.MeterOneWeight > 52000)
-                    {
-                        //MessageBox.Show(txt_MaterName.Text.Trim() + "该品名重车不能超过52吨，不允许称重!");
-                        ShowTxtLog(txt_MaterName.Text.Trim() + "该品名重车不能超过52吨，不允许称重!请取消过磅");
-                        DialogResult rs = MessageBox.Show(txt_MaterName.Text.Trim() + "该品名重车不能超过52吨，不允许称重!是否取消过磅？", DialogStr, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-                        if (rs == DialogResult.Yes)
-                        {
-                            return;
-                        }
-                        //return;
-                    }
-                }
-                */
-
+               
                 //判断车辆是否黑名单
                 CheckBlackCar(ref isBlack);
                 if (isBlack)
