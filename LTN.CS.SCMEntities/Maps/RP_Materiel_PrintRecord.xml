@@ -9,6 +9,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
       <result property="MaterialName" column="C_MaterialName" />
       <result property="Printer" column="C_Printer" />
       <result property="PrintTime" column="D_PrintTime" />
+      <result property="PrintNum" column="N_PrintNum" />
     </resultMap>
   </resultMaps>
   <statements>
@@ -25,8 +26,9 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
       ,C_PRINTER
       ,D_PRINTTIME
       ,C_WAGNO
+      ,N_PrintNum
       )values
-      (#IntId#,#WgtlistNo#,#PlanNo#,#MaterialName#,#Printer#,#PrintTime#,#WagNo#
+      (#IntId#,#WgtlistNo#,#PlanNo#,#MaterialName#,#Printer#,#PrintTime#,#WagNo#,#PrintNum#
       )
     </insert>
 
@@ -39,6 +41,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
       ,C_PRINTER
       ,D_PRINTTIME
       ,C_WAGNO
+      ,N_PrintNum
       from RP_PRINTR_RECORD_INFO a
       where 1=1
       <isNotEmpty prepend="AND" property="WgtNo">
