@@ -118,20 +118,6 @@ namespace LTN.CS.SCMService.PM.Implement
             }
             return result;
         }
-        public IList<PM_Bill_Truck> ExecuteDB_QueryLatestPM_Bill_TruckByCarNo1(string carNo)
-        {
-            IList<PM_Bill_Truck> result;
-            try
-            {
-                result = CommonDao.ExecuteQueryForList<PM_Bill_Truck>("Select_LatestPM_Bill_TruckByCarNo1", carNo);
-            }
-            catch (Exception ex)
-            {
-                log.Error(ex.Message);
-                result = null;
-            }
-            return result;
-        }
 
         public IList<PM_Bill_Truck> ExecuteDB_QueryPM_Bill_TruckByPond(Hashtable ht)
         {

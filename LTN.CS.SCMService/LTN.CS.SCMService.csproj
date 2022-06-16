@@ -106,7 +106,6 @@
     <Compile Include="PM\Implement\PM_MultiUpdate_SuppliesServiceImpl.cs" />
     <Compile Include="PM\Implement\PM_OrbitWeighterConfirmServiceImpl.cs" />
     <Compile Include="PM\Implement\PM_Pond_Bill_IronServiceImpl.cs" />
-    <Compile Include="PM\Implement\PM_Pond_Bill_Iron_HistoryServiceImpl.cs" />
     <Compile Include="PM\Implement\PM_Pond_Bill_SuppliesServiceImpl.cs" />
     <Compile Include="PM\Implement\PM_Pond_Bill_Supplies_HistoryServiceImpl.cs" />
     <Compile Include="PM\Implement\PM_RawData_MoveTrainServiceImpl.cs" />
@@ -126,7 +125,6 @@
     <Compile Include="PM\Interface\IPM_OrbitWeighterConfirmService.cs" />
     <Compile Include="PM\Interface\IPM_Pond_Bill_IronService.cs" />
     <Compile Include="PM\Interface\IPM_Bill_SuppliesService.cs" />
-    <Compile Include="PM\Interface\IPM_Pond_Bill_Iron_HistoryService.cs" />
     <Compile Include="PM\Interface\IPM_Pond_Bill_SuppliesService.cs" />
     <Compile Include="PM\Interface\IPM_Pond_Bill_Supplies_HistoryService.cs" />
     <Compile Include="PM\Interface\IPM_RawData_MoveTrainService.cs" />

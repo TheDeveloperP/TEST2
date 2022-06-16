@@ -20,10 +20,7 @@ namespace LTN.CS.SCMService.CS.Interface
         IList<SM_GczTare_Info> ExecuteDB_QueryGczTare(string ht);
 
         //新增 潘鹏  用于皮重匹配
-        IList<SM_GczTare_Info> ExecuteDB_QueryGczTareForMatch(Hashtable ht);
-
-        //李佳政 用于皮重历史记录比较
-        IList<SM_GczTare_Info> ExecuteDB_QueryGczTareHistory(string ht);
+        IList<SM_GczTare_Info> ExecuteDB_QueryGczTareForMatch(Hashtable ht);        
 
     }
 }

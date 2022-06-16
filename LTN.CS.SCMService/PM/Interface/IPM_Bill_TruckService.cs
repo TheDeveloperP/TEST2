@@ -73,7 +73,6 @@ namespace LTN.CS.SCMService.PM.Interface
         PM_Bill_Truck ExecuteDB_QueryBillTruckByPlanNo(Hashtable ht);
 
         IList<PM_Bill_Truck> ExecuteDB_QueryLatestPM_Bill_TruckByCarNo(string carNo);
-        IList<PM_Bill_Truck> ExecuteDB_QueryLatestPM_Bill_TruckByCarNo1(string carNo);
 
         PM_Bill_Truck ExecuteDB_QueryBillTruckByWgistonNo(string wgstion);
 

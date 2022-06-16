@@ -165,10 +165,7 @@ namespace LTN.CS.SCMForm.PM
                         {
                             str += GetName(columns[i].ToString()) + " → " + " \" " + columns[i + 1] + " \" " + Environment.NewLine;
                         }
-
                     }
-                    str += "修改人" + " → " + "\"" + item.UpDateHistoryUser.ToString() + "\"" + Environment.NewLine;
-                    str += "修改时间" + " → " + "\"" + CommonHelper.Str14ToTimeFormart(item.UpDateHistoryTime.ToString()) + "\"";
                 }
             }
             MessageBox.Show(str, "修改信息");
@@ -188,9 +185,9 @@ namespace LTN.CS.SCMForm.PM
             else if (str == "GrossWgtTime") { str = "毛重时间"; }
             else if (str == "TareWgtTime") { str = "皮重时间"; }
             else if (str == "GrossWgtSiteName") { str = "毛重磅点"; }
-            else if (str == "TareWgtSiteName") { str = "皮重磅点"; }
+            else if (str == "TareWgtSiteName") { str = "毛重磅点"; }
             else if (str == "GrossWgtMan") { str = "毛重计量员"; }
-            else if (str == "TareWgtMan") { str = "皮重计量员"; }
+            else if (str == "TarewgtMan") { str = "皮重计量员"; }
             else if (str == "FromDeptName") { str = "来源单位"; }
             else if (str == "FromStoreName") { str = "来源仓库"; }
             else if (str == "ToDeptName") { str = "去向单位"; }
@@ -213,10 +210,10 @@ namespace LTN.CS.SCMForm.PM
             else if (str == "PondRemark") { str = "磅单备注"; }
             else if (str == "CreateUser") { str = "新增人员"; }
             else if (str == "CreateTime") { str = "新增时间"; }
-            //else if (str == "UpDateHistoryUser") { str = "历史修改人"; }
-            //else if (str == "UpDateHistoryTime") { str = "磅单历史修改时间"; }
-            //else if (str == "ComputerIp") { str = "修改磅单电脑ip"; }
-            //else if (str == "UpDateColumns") { str = "磅单数据更新比较"; }
+            else if (str == "UpDateHistoryUser") { str = "历史修改人"; }
+            else if (str == "UpDateHistoryTime") { str = "磅单历史修改时间"; }
+            else if (str == "ComputerIp") { str = "修改磅单电脑ip"; }
+            else if (str == "UpDateColumns") { str = "磅单数据更新比较"; }
             return str;
         }
 
