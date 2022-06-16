@@ -810,9 +810,13 @@ namespace LTN.CS.SCMForm.PM
                             Hashtable ht = new Hashtable();
                             ht.Add("CarNo", pondbill.WagNo);
                             ht.Add("FormationTag", pondbill.TrainGroupTare);
-                            ht.Add("SiteNo", lue_SiteNo.EditValue.ToString());
+                            ht.Add("SiteNo", lue_SiteNo.EditValue.ToString());                                                        
                             ht.Add("BeginDate", CommonHelper.Str14ToTimeFormart(pondbill.TareWgtTime));
+                            string testDate2 = pondbill.TareWgtTime;
+                            //ht.Add("BeginDate", DateTime.Parse(testDate2).ToString("yyyyMMddHHmmss"));
+
                             IList<PM_RawData_MoveTrain> grossdata = rawdatamoveservice.ExecuteDB_QueryByHashTable(ht);
+                            
                             for (int i = 0; i < grossdata.Count; i++)
                             {
                                 grossdata[i].DataFlag = new RawDataStatusObj { IntValue = (int)RawDataStatus.receive };
