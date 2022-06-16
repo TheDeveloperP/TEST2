@@ -30,7 +30,7 @@ namespace LTN.CS.SCMForm.PM
         public IPM_Bill_SuppliesService billService { get; set; }
         public ISM_GczTare_InfoService gczService { get; set; }
         public string strDrass = string.Empty;
-
+        public bool flag = true;
         #endregion
 
         #region 构造函数
@@ -606,31 +606,39 @@ namespace LTN.CS.SCMForm.PM
                 {
                     txt_TareWgt.Text = entity.C_TAREWEIGHT.ToString();
                     txt_TareWgtMan.Text = SessionHelper.LogUserNickName;
-                    dte_TareWgtTime.EditValue = entity.C_CREATETIME;
-                    CalcNetWeight();
-                    strDrass = entity.C_RESERV1;
-
-                    if (entity.C_SITENO != null && entity.C_SITENO == "401")
+                    TimeSpan ts1 = new TimeSpan(entity.C_CREATETIME.Ticks);
+                    TimeSpan ts2 = new TimeSpan(DateTime.Now.Ticks);
+                    TimeSpan ts = ts2.Subtract(ts1).Duration();
+                    int days = ts.Days;
+                    if(days >= 3 && !flag)
                     {
-                        txt_TareWgtSite.Text = "钢厂站";                        
-                        // D:\LG\Images\20210722\成功\401202107221409357A.jpg
-                        //http://10.200.115.158/LG/Images/20210624/%E6%88%90%E5%8A%9F/401202106240645028A.jpg
-                        string path = "http://10.200.115.158/";
-                        path = path + strDrass.Replace(@"D:\", "").Replace(@"\", "/");
-                        //path = "http://172.18.200.16/2020/901202009/901202009020736574.jpg";
-                        PE1.Image = GetImage.getImageFromUrl(path);
+                        MessageBox.Show("所选皮重距离当前时间超过"+days+"天，请核实皮重信息", "操作提示", MessageBoxButtons.OK, MessageBoxIcon.None, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
                     }
-                    else if(entity.C_SITENO != null && entity.C_SITENO == "402")
+                    else
                     {
-                        txt_TareWgtSite.Text = "综合站";
-                        string path = "http://10.200.115.190/";
-                        path = path + strDrass.Replace(@"D:\", "").Replace(@"\", "/");                        
-                        PE1.Image = GetImage.getImageFromUrl(path);
-                    }
+                        flag = false;
+                        dte_TareWgtTime.EditValue = entity.C_CREATETIME;
+                        CalcNetWeight();
+                        strDrass = entity.C_RESERV1;
 
-                    
-                    
-                   
+                        if (entity.C_SITENO != null && entity.C_SITENO == "401")
+                        {
+                            txt_TareWgtSite.Text = "钢厂站";
+                            // D:\LG\Images\20210722\成功\401202107221409357A.jpg
+                            //http://10.200.115.158/LG/Images/20210624/%E6%88%90%E5%8A%9F/401202106240645028A.jpg
+                            string path = "http://10.200.115.158/";
+                            path = path + strDrass.Replace(@"D:\", "").Replace(@"\", "/");
+                            //path = "http://172.18.200.16/2020/901202009/901202009020736574.jpg";
+                            PE1.Image = GetImage.getImageFromUrl(path);
+                        }
+                        else if (entity.C_SITENO != null && entity.C_SITENO == "402")
+                        {
+                            txt_TareWgtSite.Text = "综合站";
+                            string path = "http://10.200.115.190/";
+                            path = path + strDrass.Replace(@"D:\", "").Replace(@"\", "/");
+                            PE1.Image = GetImage.getImageFromUrl(path);
+                        }
+                    }
                 }
             }
             catch (Exception)
