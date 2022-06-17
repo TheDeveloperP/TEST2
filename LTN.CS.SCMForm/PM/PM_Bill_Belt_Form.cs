@@ -58,7 +58,8 @@ namespace LTN.CS.SCMForm.PM
 
         private void btn_Invalid_Click(object sender, EventArgs e)
         {
-            var item = gView_BeltBill.GetFocusedRow() as PM_Bill_Belt;
+            /*
+            var item = gView_BeltBill.GetFocusedRow() as PM_Bill_Belt;            
             if (item == null)
                 return;
             if (MessageDxUtil.ShowYesNoAndTips("确定作废当前选中数据？") == DialogResult.Yes)
@@ -76,6 +77,33 @@ namespace LTN.CS.SCMForm.PM
                     MessageDxUtil.ShowError("作废异常");
                 }
             }
+            */
+
+            int[] rows = gView_BeltBill.GetSelectedRows();
+            if (rows.Length == 0)
+            {
+                MessageDxUtil.ShowTips("请勾选要作废的磅单");
+                return;
+            }
+            if(MessageDxUtil.ShowYesNoAndTips("确定作废当前选中数据？") == DialogResult.Yes)
+            {
+                try
+                {
+                    foreach (var item in rows)
+                    {
+                        PM_Bill_Belt bill = gView_BeltBill.GetRow(item) as PM_Bill_Belt;
+                        bill.C_Updatetime = CommonHelper.TimeToStr14(DateTime.Now);
+                        bill.C_Updateusername = SessionHelper.LogUserNickName;
+                        var result = MainService.ExecuteDB_InvalidPM_Bill_Belt(bill);
+                    }
+                    MessageDxUtil.ShowTips("作废成功");
+                }
+                catch(Exception ex)
+                {
+                    MessageDxUtil.ShowError(ex.Message);
+                }                
+                Query();                              
+            }            
         }
 
         private void btn_Export_Click(object sender, EventArgs e)

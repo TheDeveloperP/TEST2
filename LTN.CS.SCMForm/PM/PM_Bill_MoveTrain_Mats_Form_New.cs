@@ -991,6 +991,7 @@ namespace LTN.CS.SCMForm.PM
             if (rows.Length == 0)
             {
                 MessageDxUtil.ShowTips("请勾选要匹配皮重的磅单");
+                return;
             }
             else
             {
@@ -1698,13 +1699,13 @@ namespace LTN.CS.SCMForm.PM
                     */
                     if(weight1 == 0 && weight2 > 0)
                     {
-                        if (checkTareHistory(tareList[1]))
+                        if (checkTareHistory(tareList[0]))
                         {
                             flag = true;
                         }
                     }else if( weight1 > 0 && weight2 == 0)
                     {
-                        if (checkTareHistory(tareList[2]))
+                        if (checkTareHistory(tareList[1]))
                         {
                             flag = true;
                         }
