@@ -377,7 +377,7 @@
             // 
             // T_THEORETICAL_WEIGHT
             // 
-            this.T_THEORETICAL_WEIGHT.Caption = "理论重量(KG)";
+            this.T_THEORETICAL_WEIGHT.Caption = "理论重量(吨)";
             this.T_THEORETICAL_WEIGHT.FieldName = "T_THEORETICAL_WEIGHT";
             this.T_THEORETICAL_WEIGHT.Name = "T_THEORETICAL_WEIGHT";
             this.T_THEORETICAL_WEIGHT.Visible = true;
@@ -386,7 +386,7 @@
             // 
             // T_ACTUAL_WEIGHT
             // 
-            this.T_ACTUAL_WEIGHT.Caption = "实际重量";
+            this.T_ACTUAL_WEIGHT.Caption = "实际重量(吨)";
             this.T_ACTUAL_WEIGHT.FieldName = "T_ACTUAL_WEIGHT";
             this.T_ACTUAL_WEIGHT.Name = "T_ACTUAL_WEIGHT";
             this.T_ACTUAL_WEIGHT.Visible = true;

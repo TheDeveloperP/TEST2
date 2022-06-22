@@ -411,5 +411,18 @@ namespace LTN.CS.SCMForm.SM
         {
             api.close();
         }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            isConnect = api.init();
+            if (isConnect == true)
+            {
+                Timer_Test_.Stop();
+            }
+            else
+            {
+                simpleButton1.Enabled = true;
+            }
+        }
     }
 }

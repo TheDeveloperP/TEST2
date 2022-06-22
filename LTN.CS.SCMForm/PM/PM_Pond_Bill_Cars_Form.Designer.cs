@@ -954,7 +954,7 @@
             // 
             // checkedComboBoxEdit1
             // 
-            this.checkedComboBoxEdit1.Location = new System.Drawing.Point(940, 90);
+            this.checkedComboBoxEdit1.Location = new System.Drawing.Point(794, 90);
             this.checkedComboBoxEdit1.Name = "checkedComboBoxEdit1";
             this.checkedComboBoxEdit1.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.checkedComboBoxEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
@@ -967,7 +967,7 @@
             // 
             // checkEdit1
             // 
-            this.checkEdit1.Location = new System.Drawing.Point(1050, 89);
+            this.checkEdit1.Location = new System.Drawing.Point(904, 90);
             this.checkEdit1.Name = "checkEdit1";
             this.checkEdit1.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.checkEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);

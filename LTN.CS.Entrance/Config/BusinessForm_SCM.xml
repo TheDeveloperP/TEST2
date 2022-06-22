@@ -108,9 +108,11 @@
     <property name="CarService" ref="SM_Car_InfoService"></property>
   </object>
   <!--RFID配置-->
+  
   <object id="SM_0012" type="LTN.CS.SCMForm.SM.SM_RFID_Info_Form,LTN.CS.SCMForm"  singleton="false"  >
     <property name="MainService" ref="SM_RFID_InfoService"></property>
   </object>
+  
   <!--物料超限设置-->
   <object id="SM_0013" type="LTN.CS.SCMForm.SM.SM_MatWGTLimit_Form,LTN.CS.SCMForm"  singleton="false"  >
     <property name="MainService" ref="SM_MatWGTLimitService"></property>
@@ -130,6 +132,7 @@
     <property name="MainService" ref="SM_ReeferContainer_RateService"></property>
     <property name="PoundSiteService" ref="SM_PoundSite_InfoService"></property>
   </object>
+
   
   <!---PT-->
   <object id="PT_001" type="LTN.CS.SCMForm.PT.PT_TruckMeasurePlan_Form,LTN.CS.SCMForm"  singleton="false"  >

@@ -362,6 +362,9 @@
             this.gView_BeltBill.GroupPanelText = " ";
             this.gView_BeltBill.Name = "gView_BeltBill";
             this.gView_BeltBill.OptionsBehavior.Editable = false;
+            this.gView_BeltBill.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gView_BeltBill.OptionsSelection.MultiSelect = true;
+            this.gView_BeltBill.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gView_BeltBill.OptionsView.ColumnAutoWidth = false;
             this.gView_BeltBill.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gView_BeltBill_CustomColumnDisplayText);
             this.gView_BeltBill.DoubleClick += new System.EventHandler(this.gView_BeltBill_DoubleClick);
@@ -372,7 +375,7 @@
             this.gCol_C_Wgtlistno.FieldName = "C_Wgtlistno";
             this.gCol_C_Wgtlistno.Name = "gCol_C_Wgtlistno";
             this.gCol_C_Wgtlistno.Visible = true;
-            this.gCol_C_Wgtlistno.VisibleIndex = 0;
+            this.gCol_C_Wgtlistno.VisibleIndex = 1;
             this.gCol_C_Wgtlistno.Width = 240;
             // 
             // gCol_C_Beltno
@@ -381,7 +384,7 @@
             this.gCol_C_Beltno.FieldName = "C_Beltno";
             this.gCol_C_Beltno.Name = "gCol_C_Beltno";
             this.gCol_C_Beltno.Visible = true;
-            this.gCol_C_Beltno.VisibleIndex = 1;
+            this.gCol_C_Beltno.VisibleIndex = 2;
             this.gCol_C_Beltno.Width = 100;
             // 
             // gCol_C_Beltname
@@ -390,7 +393,7 @@
             this.gCol_C_Beltname.FieldName = "C_Beltname";
             this.gCol_C_Beltname.Name = "gCol_C_Beltname";
             this.gCol_C_Beltname.Visible = true;
-            this.gCol_C_Beltname.VisibleIndex = 2;
+            this.gCol_C_Beltname.VisibleIndex = 3;
             this.gCol_C_Beltname.Width = 100;
             // 
             // gCol_C_Materialname
@@ -399,7 +402,7 @@
             this.gCol_C_Materialname.FieldName = "C_Materialname";
             this.gCol_C_Materialname.Name = "gCol_C_Materialname";
             this.gCol_C_Materialname.Visible = true;
-            this.gCol_C_Materialname.VisibleIndex = 11;
+            this.gCol_C_Materialname.VisibleIndex = 12;
             this.gCol_C_Materialname.Width = 154;
             // 
             // gCol_N_Startwgt
@@ -408,7 +411,7 @@
             this.gCol_N_Startwgt.FieldName = "N_Startwgt";
             this.gCol_N_Startwgt.Name = "gCol_N_Startwgt";
             this.gCol_N_Startwgt.Visible = true;
-            this.gCol_N_Startwgt.VisibleIndex = 3;
+            this.gCol_N_Startwgt.VisibleIndex = 4;
             this.gCol_N_Startwgt.Width = 125;
             // 
             // gCol_N_Endwgt
@@ -417,7 +420,7 @@
             this.gCol_N_Endwgt.FieldName = "N_Endwgt";
             this.gCol_N_Endwgt.Name = "gCol_N_Endwgt";
             this.gCol_N_Endwgt.Visible = true;
-            this.gCol_N_Endwgt.VisibleIndex = 4;
+            this.gCol_N_Endwgt.VisibleIndex = 5;
             this.gCol_N_Endwgt.Width = 125;
             // 
             // gCol_N_Netwgt
@@ -426,7 +429,7 @@
             this.gCol_N_Netwgt.FieldName = "N_Netwgt";
             this.gCol_N_Netwgt.Name = "gCol_N_Netwgt";
             this.gCol_N_Netwgt.Visible = true;
-            this.gCol_N_Netwgt.VisibleIndex = 5;
+            this.gCol_N_Netwgt.VisibleIndex = 6;
             this.gCol_N_Netwgt.Width = 125;
             // 
             // gCol_C_Measurestarttime
@@ -435,7 +438,7 @@
             this.gCol_C_Measurestarttime.FieldName = "C_Measurestarttime";
             this.gCol_C_Measurestarttime.Name = "gCol_C_Measurestarttime";
             this.gCol_C_Measurestarttime.Visible = true;
-            this.gCol_C_Measurestarttime.VisibleIndex = 6;
+            this.gCol_C_Measurestarttime.VisibleIndex = 7;
             this.gCol_C_Measurestarttime.Width = 175;
             // 
             // gCol_C_Measureendtime
@@ -444,7 +447,7 @@
             this.gCol_C_Measureendtime.FieldName = "C_Measureendtime";
             this.gCol_C_Measureendtime.Name = "gCol_C_Measureendtime";
             this.gCol_C_Measureendtime.Visible = true;
-            this.gCol_C_Measureendtime.VisibleIndex = 7;
+            this.gCol_C_Measureendtime.VisibleIndex = 8;
             this.gCol_C_Measureendtime.Width = 175;
             // 
             // gCol_C_Planno
@@ -453,7 +456,7 @@
             this.gCol_C_Planno.FieldName = "C_Planno";
             this.gCol_C_Planno.Name = "gCol_C_Planno";
             this.gCol_C_Planno.Visible = true;
-            this.gCol_C_Planno.VisibleIndex = 10;
+            this.gCol_C_Planno.VisibleIndex = 11;
             this.gCol_C_Planno.Width = 184;
             // 
             // gCol_C_Fromdeptname
@@ -462,7 +465,7 @@
             this.gCol_C_Fromdeptname.FieldName = "C_Fromdeptname";
             this.gCol_C_Fromdeptname.Name = "gCol_C_Fromdeptname";
             this.gCol_C_Fromdeptname.Visible = true;
-            this.gCol_C_Fromdeptname.VisibleIndex = 12;
+            this.gCol_C_Fromdeptname.VisibleIndex = 13;
             this.gCol_C_Fromdeptname.Width = 155;
             // 
             // gCol_C_Todeptname
@@ -471,7 +474,7 @@
             this.gCol_C_Todeptname.FieldName = "C_Todeptname";
             this.gCol_C_Todeptname.Name = "gCol_C_Todeptname";
             this.gCol_C_Todeptname.Visible = true;
-            this.gCol_C_Todeptname.VisibleIndex = 13;
+            this.gCol_C_Todeptname.VisibleIndex = 14;
             this.gCol_C_Todeptname.Width = 152;
             // 
             // gCol_C_Fromstorename
@@ -480,7 +483,7 @@
             this.gCol_C_Fromstorename.FieldName = "C_Fromstorename";
             this.gCol_C_Fromstorename.Name = "gCol_C_Fromstorename";
             this.gCol_C_Fromstorename.Visible = true;
-            this.gCol_C_Fromstorename.VisibleIndex = 14;
+            this.gCol_C_Fromstorename.VisibleIndex = 15;
             this.gCol_C_Fromstorename.Width = 146;
             // 
             // gCol_C_Tostorename
@@ -489,7 +492,7 @@
             this.gCol_C_Tostorename.FieldName = "C_Tostorename";
             this.gCol_C_Tostorename.Name = "gCol_C_Tostorename";
             this.gCol_C_Tostorename.Visible = true;
-            this.gCol_C_Tostorename.VisibleIndex = 15;
+            this.gCol_C_Tostorename.VisibleIndex = 16;
             this.gCol_C_Tostorename.Width = 151;
             // 
             // gCol_C_Billstate
@@ -498,7 +501,7 @@
             this.gCol_C_Billstate.FieldName = "C_Planstatus";
             this.gCol_C_Billstate.Name = "gCol_C_Billstate";
             this.gCol_C_Billstate.Visible = true;
-            this.gCol_C_Billstate.VisibleIndex = 8;
+            this.gCol_C_Billstate.VisibleIndex = 9;
             this.gCol_C_Billstate.Width = 114;
             // 
             // gCol_C_Uploadstatus
@@ -507,7 +510,7 @@
             this.gCol_C_Uploadstatus.FieldName = "C_Uploadstatus";
             this.gCol_C_Uploadstatus.Name = "gCol_C_Uploadstatus";
             this.gCol_C_Uploadstatus.Visible = true;
-            this.gCol_C_Uploadstatus.VisibleIndex = 9;
+            this.gCol_C_Uploadstatus.VisibleIndex = 10;
             this.gCol_C_Uploadstatus.Width = 81;
             // 
             // gCol_C_Billcreatetime
@@ -516,7 +519,7 @@
             this.gCol_C_Billcreatetime.FieldName = "C_Billcreatetime";
             this.gCol_C_Billcreatetime.Name = "gCol_C_Billcreatetime";
             this.gCol_C_Billcreatetime.Visible = true;
-            this.gCol_C_Billcreatetime.VisibleIndex = 17;
+            this.gCol_C_Billcreatetime.VisibleIndex = 18;
             this.gCol_C_Billcreatetime.Width = 169;
             // 
             // gCol_C_Billcreateusername
@@ -525,7 +528,7 @@
             this.gCol_C_Billcreateusername.FieldName = "C_Billcreateusername";
             this.gCol_C_Billcreateusername.Name = "gCol_C_Billcreateusername";
             this.gCol_C_Billcreateusername.Visible = true;
-            this.gCol_C_Billcreateusername.VisibleIndex = 16;
+            this.gCol_C_Billcreateusername.VisibleIndex = 17;
             this.gCol_C_Billcreateusername.Width = 111;
             // 
             // gCol_C_Updatetime
@@ -534,7 +537,7 @@
             this.gCol_C_Updatetime.FieldName = "C_Updatetime";
             this.gCol_C_Updatetime.Name = "gCol_C_Updatetime";
             this.gCol_C_Updatetime.Visible = true;
-            this.gCol_C_Updatetime.VisibleIndex = 19;
+            this.gCol_C_Updatetime.VisibleIndex = 20;
             this.gCol_C_Updatetime.Width = 158;
             // 
             // gCol_C_Updateusername
@@ -543,7 +546,7 @@
             this.gCol_C_Updateusername.FieldName = "C_Updateusername";
             this.gCol_C_Updateusername.Name = "gCol_C_Updateusername";
             this.gCol_C_Updateusername.Visible = true;
-            this.gCol_C_Updateusername.VisibleIndex = 18;
+            this.gCol_C_Updateusername.VisibleIndex = 19;
             this.gCol_C_Updateusername.Width = 83;
             // 
             // gCol_I_Intid
