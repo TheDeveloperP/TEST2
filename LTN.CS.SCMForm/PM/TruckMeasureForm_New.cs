@@ -2484,9 +2484,31 @@ namespace LTN.CS.SCMForm.PM
             billTruck.C_PERCENTAGE = truckMeasure.C_PERCENTAGE;
             billTruck.C_SHIPPINGNOTE = truckMeasure.C_SHIPPINGNOTE;
             billTruck.I_REPEATPOUND = truckMeasure.I_REPEATPOUND;
-            billTruck.C_PLANLIMITTIME = truckMeasure.C_PLANLIMITTIME;
+            //修改处理逻辑
+            //billTruck.C_PLANLIMITTIME = truckMeasure.C_PLANLIMITTIME;
+            if (IsDate(truckMeasure.C_PLANLIMITTIME))
+            {
+                DateTime time = DateTime.Parse(truckMeasure.C_PLANLIMITTIME);
+                billTruck.C_PLANLIMITTIME = time.ToString("yyyyMMddHHmmss");
+            }
+            else
+            {
+                billTruck.C_PLANLIMITTIME = truckMeasure.C_PLANLIMITTIME;
+            }
             billTruck.C_PONDLIMIT = truckMeasure.C_PONDLIMIT;
-            billTruck.C_CREATETIME = truckMeasure.C_CREATETIME;
+
+           
+            if (IsDate(truckMeasure.C_CREATETIME))
+            {
+                DateTime time = DateTime.Parse(truckMeasure.C_CREATETIME);
+                billTruck.C_CREATETIME = time.ToString("yyyyMMddHHmmss");
+            }
+            else
+            {
+                billTruck.C_CREATETIME = truckMeasure.C_CREATETIME;
+            }
+            //billTruck.C_CREATETIME = truckMeasure.C_CREATETIME;
+
             billTruck.C_CREATEUSERNAME = truckMeasure.C_CREATEUSERNAME;
             billTruck.C_REMARK = truckMeasure.C_REMARK;
             billTruck.C_RESERVE1 = truckMeasure.C_RESERVE1;
@@ -4145,7 +4167,23 @@ namespace LTN.CS.SCMForm.PM
              */
         }
 
-
+        /// <summary>
+        /// 新增用于判断时间格式 --潘鹏
+        /// </summary>
+        /// <param name="strDate"></param>
+        /// <returns></returns>
+        public bool IsDate(string strDate)
+        {
+            try
+            {
+                DateTime.Parse(strDate);  //不是字符串时会出现异常
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
 
     }
@@ -4161,6 +4199,6 @@ namespace LTN.CS.SCMForm.PM
         public ushort vMinute;
         public ushort vSecond;
     }
-
+    
 }
 
