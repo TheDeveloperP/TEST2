@@ -423,6 +423,7 @@
     <EmbeddedResource Include="Maps\Pond_ComplateTime.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <Content Include="Maps\PM_Pond_Bill_Iron_History.xml" />
     <Content Include="Maps\SM_JZX_Huda_Message.xml">
       <SubType>Designer</SubType>
     </Content>
