@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PM_Pond_Bill_Cars_Form));
             this.gToolStrip1 = new LTN.CS.Core.Helper.GToolStrip();
             this.btn_Query = new LTN.CS.Core.Helper.GToolStripButton();
-            this.btn_QueryForJinCai = new LTN.CS.Core.Helper.GToolStripButton();
             this.gToolStripButton1 = new LTN.CS.Core.Helper.GToolStripButton();
             this.gToolStripButton6 = new LTN.CS.Core.Helper.GToolStripButton();
             this.gToolStripButton5 = new LTN.CS.Core.Helper.GToolStripButton();
@@ -146,7 +145,6 @@
             this.gToolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.gToolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btn_Query,
-            this.btn_QueryForJinCai,
             this.gToolStripButton1,
             this.gToolStripButton6,
             this.gToolStripButton5,
@@ -170,17 +168,6 @@
             this.btn_Query.Size = new System.Drawing.Size(68, 39);
             this.btn_Query.Text = "查询";
             this.btn_Query.Click += new System.EventHandler(this.btn_Query_Click);
-            // 
-            // btn_QueryForJinCai
-            // 
-            this.btn_QueryForJinCai.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btn_QueryForJinCai.Image = global::LTN.CS.SCMForm.Properties.Resources.Query_24;
-            this.btn_QueryForJinCai.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_QueryForJinCai.Name = "btn_QueryForJinCai";
-            this.btn_QueryForJinCai.Size = new System.Drawing.Size(145, 39);
-            this.btn_QueryForJinCai.Text = "金材打印前查询";
-            this.btn_QueryForJinCai.ToolTipText = "金材打印查询";
-            this.btn_QueryForJinCai.Click += new System.EventHandler(this.btn_QueryForJinCai_Click);
             // 
             // gToolStripButton1
             // 
@@ -390,6 +377,8 @@
             // 
             // layoutControlGroup1
             // 
+            this.layoutControlGroup1.AppearanceGroup.BackColor = System.Drawing.Color.White;
+            this.layoutControlGroup1.AppearanceGroup.Options.UseBackColor = true;
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
@@ -965,7 +954,7 @@
             // 
             // checkedComboBoxEdit1
             // 
-            this.checkedComboBoxEdit1.Location = new System.Drawing.Point(940, 90);
+            this.checkedComboBoxEdit1.Location = new System.Drawing.Point(794, 90);
             this.checkedComboBoxEdit1.Name = "checkedComboBoxEdit1";
             this.checkedComboBoxEdit1.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.checkedComboBoxEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
@@ -978,7 +967,7 @@
             // 
             // checkEdit1
             // 
-            this.checkEdit1.Location = new System.Drawing.Point(1050, 89);
+            this.checkEdit1.Location = new System.Drawing.Point(904, 90);
             this.checkEdit1.Name = "checkEdit1";
             this.checkEdit1.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.checkEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -1110,7 +1099,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         //private Core.Helper.GToolStripButton gToolStripButton6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
-        private Core.Helper.GToolStripButton btn_QueryForJinCai;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
         private Core.Helper.GToolStripButton gToolStripButton7;
         private Core.Helper.GToolStripButton gToolStripButton9;

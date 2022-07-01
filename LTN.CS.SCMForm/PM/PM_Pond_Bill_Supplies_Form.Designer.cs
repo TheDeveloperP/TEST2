@@ -380,10 +380,11 @@
             // 
             // gToolStripButton3
             // 
+            this.gToolStripButton3.Font = new System.Drawing.Font("Tahoma", 12F);
             this.gToolStripButton3.Image = global::LTN.CS.SCMForm.Properties.Resources.Delete5_32;
             this.gToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.gToolStripButton3.Name = "gToolStripButton3";
-            this.gToolStripButton3.Size = new System.Drawing.Size(138, 32);
+            this.gToolStripButton3.Size = new System.Drawing.Size(125, 32);
             this.gToolStripButton3.Text = "删除磅单备注";
             this.gToolStripButton3.Click += new System.EventHandler(this.gToolStripButton3_Click);
             // 
@@ -793,14 +794,14 @@
             // 
             // checkEdit1
             // 
-            this.checkEdit1.Location = new System.Drawing.Point(720, 82);
+            this.checkEdit1.Location = new System.Drawing.Point(707, 86);
             this.checkEdit1.Name = "checkEdit1";
             this.checkEdit1.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.checkEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.checkEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.checkEdit1.Properties.Appearance.Options.UseBackColor = true;
             this.checkEdit1.Properties.Appearance.Options.UseFont = true;
             this.checkEdit1.Properties.Caption = "按修改时间查询";
-            this.checkEdit1.Size = new System.Drawing.Size(175, 31);
+            this.checkEdit1.Size = new System.Drawing.Size(139, 23);
             this.checkEdit1.TabIndex = 7;
             // 
             // PM_Pond_Bill_Supplies_Form

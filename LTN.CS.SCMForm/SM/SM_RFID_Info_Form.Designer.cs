@@ -36,6 +36,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.txt_carno = new DevExpress.XtraEditors.TextEdit();
             this.txt_RFID = new DevExpress.XtraEditors.TextEdit();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -43,6 +44,7 @@
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.gToolStrip1 = new LTN.CS.Core.Helper.GToolStrip();
             this.btn_add = new LTN.CS.Core.Helper.GToolStripButton();
             this.btn_update = new LTN.CS.Core.Helper.GToolStripButton();
@@ -73,6 +75,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             this.gToolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcl_main)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvw_main)).BeginInit();
@@ -96,10 +99,12 @@
             this.layoutControl1.Controls.Add(this.button1);
             this.layoutControl1.Controls.Add(this.txt_carno);
             this.layoutControl1.Controls.Add(this.txt_RFID);
+            this.layoutControl1.Controls.Add(this.simpleButton1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(2, 2);
             this.layoutControl1.Margin = new System.Windows.Forms.Padding(2);
             this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(60, 161, 450, 400);
             this.layoutControl1.Root = this.layoutControlGroup1;
             this.layoutControl1.Size = new System.Drawing.Size(890, 58);
             this.layoutControl1.TabIndex = 0;
@@ -108,9 +113,9 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(744, 12);
+            this.button3.Location = new System.Drawing.Point(752, 12);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(118, 34);
+            this.button3.Size = new System.Drawing.Size(116, 34);
             this.button3.TabIndex = 8;
             this.button3.Text = "解绑";
             this.button3.UseVisualStyleBackColor = true;
@@ -119,9 +124,9 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(607, 12);
+            this.button2.Location = new System.Drawing.Point(635, 12);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 34);
+            this.button2.Size = new System.Drawing.Size(113, 34);
             this.button2.TabIndex = 7;
             this.button2.Text = "绑定";
             this.button2.UseVisualStyleBackColor = true;
@@ -130,9 +135,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(471, 12);
+            this.button1.Location = new System.Drawing.Point(404, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 34);
+            this.button1.Size = new System.Drawing.Size(112, 34);
             this.button1.TabIndex = 6;
             this.button1.Text = "连接";
             this.button1.UseVisualStyleBackColor = true;
@@ -140,12 +145,12 @@
             // 
             // txt_carno
             // 
-            this.txt_carno.Location = new System.Drawing.Point(307, 12);
+            this.txt_carno.Location = new System.Drawing.Point(306, 12);
             this.txt_carno.Margin = new System.Windows.Forms.Padding(2);
             this.txt_carno.Name = "txt_carno";
             this.txt_carno.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txt_carno.Properties.Appearance.Options.UseFont = true;
-            this.txt_carno.Size = new System.Drawing.Size(160, 26);
+            this.txt_carno.Size = new System.Drawing.Size(94, 26);
             this.txt_carno.StyleController = this.layoutControl1;
             this.txt_carno.TabIndex = 5;
             // 
@@ -157,9 +162,26 @@
             this.txt_RFID.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txt_RFID.Properties.Appearance.Options.UseFont = true;
             this.txt_RFID.Properties.ReadOnly = true;
-            this.txt_RFID.Size = new System.Drawing.Size(155, 26);
+            this.txt_RFID.Size = new System.Drawing.Size(154, 26);
             this.txt_RFID.StyleController = this.layoutControl1;
             this.txt_RFID.TabIndex = 4;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.White;
+            this.simpleButton1.Appearance.BackColor2 = System.Drawing.Color.WhiteSmoke;
+            this.simpleButton1.Appearance.BorderColor = System.Drawing.Color.LightGray;
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.Appearance.Options.UseBorderColor = true;
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.Location = new System.Drawing.Point(520, 12);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(111, 34);
+            this.simpleButton1.StyleController = this.layoutControl1;
+            this.simpleButton1.TabIndex = 9;
+            this.simpleButton1.Text = "断开";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // layoutControlGroup1
             // 
@@ -171,9 +193,10 @@
             this.emptySpaceItem2,
             this.layoutControlItem3,
             this.layoutControlItem4,
-            this.layoutControlItem5});
+            this.layoutControlItem5,
+            this.layoutControlItem6});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 4;
             this.layoutControlGroup1.Size = new System.Drawing.Size(890, 58);
             this.layoutControlGroup1.TextVisible = false;
@@ -185,7 +208,7 @@
             this.layoutControlItem1.Control = this.txt_RFID;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(227, 38);
+            this.layoutControlItem1.Size = new System.Drawing.Size(226, 38);
             this.layoutControlItem1.Text = "RFID";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(64, 19);
             // 
@@ -194,26 +217,26 @@
             this.layoutControlItem2.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F);
             this.layoutControlItem2.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem2.Control = this.txt_carno;
-            this.layoutControlItem2.Location = new System.Drawing.Point(227, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(226, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(232, 38);
+            this.layoutControlItem2.Size = new System.Drawing.Size(166, 38);
             this.layoutControlItem2.Text = "车牌号码";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(64, 19);
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(854, 0);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(860, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(16, 38);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(10, 38);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.button1;
-            this.layoutControlItem3.Location = new System.Drawing.Point(459, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(392, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(136, 38);
+            this.layoutControlItem3.Size = new System.Drawing.Size(116, 38);
             this.layoutControlItem3.Text = "连接";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
@@ -221,20 +244,31 @@
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.button2;
-            this.layoutControlItem4.Location = new System.Drawing.Point(595, 0);
+            this.layoutControlItem4.Location = new System.Drawing.Point(623, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(137, 38);
+            this.layoutControlItem4.Size = new System.Drawing.Size(117, 38);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.button3;
-            this.layoutControlItem5.Location = new System.Drawing.Point(732, 0);
+            this.layoutControlItem5.Location = new System.Drawing.Point(740, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(122, 38);
+            this.layoutControlItem5.Size = new System.Drawing.Size(120, 38);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.simpleButton1;
+            this.layoutControlItem6.Location = new System.Drawing.Point(508, 0);
+            this.layoutControlItem6.MinSize = new System.Drawing.Size(47, 30);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(115, 38);
+            this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem6.TextVisible = false;
             // 
             // gToolStrip1
             // 
@@ -437,6 +471,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             this.gToolStrip1.ResumeLayout(false);
             this.gToolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcl_main)).EndInit();
@@ -479,5 +514,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private System.Windows.Forms.Timer Timer_Test_;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
     }
 }

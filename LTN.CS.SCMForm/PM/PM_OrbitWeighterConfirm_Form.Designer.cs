@@ -302,7 +302,7 @@
             // 
             // T_STANDARDWEIGHT
             // 
-            this.T_STANDARDWEIGHT.Caption = "标准重量(KG)";
+            this.T_STANDARDWEIGHT.Caption = "标准重量(吨)";
             this.T_STANDARDWEIGHT.FieldName = "T_STANDARDWEIGHT";
             this.T_STANDARDWEIGHT.Name = "T_STANDARDWEIGHT";
             this.T_STANDARDWEIGHT.Visible = true;

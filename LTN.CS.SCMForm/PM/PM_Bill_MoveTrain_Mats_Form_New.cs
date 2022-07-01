@@ -133,7 +133,7 @@ namespace LTN.CS.SCMForm.PM
             {
                 if (result.Count != 0)
                 {
-                    int num = 0;
+                    //int num = 0;
                     List<PM_Pond_Bill_Supplies> data = result.ToList();
                     data.ForEach(r =>
                     {
@@ -145,10 +145,12 @@ namespace LTN.CS.SCMForm.PM
                         {
                             r.TareWgtTime = CommonHelper.Str14ToTimeFormart(r.TareWgtTime);
                         }
+                        /*
                         if (r.TareWgt == 0 && r.NetWgt == 0)
                         {
                             //gvw_pond.GetRow[num]
                         }
+                        */
                     });
                 }
                 gcl_pond.DataSource = result;
@@ -808,9 +810,13 @@ namespace LTN.CS.SCMForm.PM
                             Hashtable ht = new Hashtable();
                             ht.Add("CarNo", pondbill.WagNo);
                             ht.Add("FormationTag", pondbill.TrainGroupTare);
-                            ht.Add("SiteNo", lue_SiteNo.EditValue.ToString());
+                            ht.Add("SiteNo", lue_SiteNo.EditValue.ToString());                                                        
                             ht.Add("BeginDate", CommonHelper.Str14ToTimeFormart(pondbill.TareWgtTime));
+                            string testDate2 = pondbill.TareWgtTime;
+                            //ht.Add("BeginDate", DateTime.Parse(testDate2).ToString("yyyyMMddHHmmss"));
+
                             IList<PM_RawData_MoveTrain> grossdata = rawdatamoveservice.ExecuteDB_QueryByHashTable(ht);
+                            
                             for (int i = 0; i < grossdata.Count; i++)
                             {
                                 grossdata[i].DataFlag = new RawDataStatusObj { IntValue = (int)RawDataStatus.receive };
@@ -985,6 +991,7 @@ namespace LTN.CS.SCMForm.PM
             if (rows.Length == 0)
             {
                 MessageDxUtil.ShowTips("请勾选要匹配皮重的磅单");
+                return;
             }
             else
             {
@@ -1692,13 +1699,13 @@ namespace LTN.CS.SCMForm.PM
                     */
                     if(weight1 == 0 && weight2 > 0)
                     {
-                        if (checkTareHistory(tareList[1]))
+                        if (checkTareHistory(tareList[0]))
                         {
                             flag = true;
                         }
                     }else if( weight1 > 0 && weight2 == 0)
                     {
-                        if (checkTareHistory(tareList[2]))
+                        if (checkTareHistory(tareList[1]))
                         {
                             flag = true;
                         }
@@ -1769,7 +1776,7 @@ namespace LTN.CS.SCMForm.PM
             }
         }
         /// <summary>
-        /// 修改
+        /// 修改    6-5-6-22
         /// </summary>
         /// <param name="poundtrainmats"></param>
         /// <param name="tare"></param>
