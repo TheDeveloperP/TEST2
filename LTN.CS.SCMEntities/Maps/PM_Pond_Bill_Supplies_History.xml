@@ -475,5 +475,15 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
       where  C_WGTLISTNO=#WgtlistNo#
     </update>
 
+    <update id="UpdateSuppliesDataFlagByIntId"  parameterClass="PM_Pond_Bill_Supplies_History">
+      update PM_Pond_Bill_Supplies_History set
+      C_ComputerIp=#ComputerIp#,
+      C_UpDateHistoryUser=#UpDateHistoryUser#,
+      C_UpDateHistoryTime=#UpDateHistoryTime#,
+      I_ReserveFlag1=#IReserveFlag1#
+      where
+      I_IntId = #IntId#　
+    </update>
+
   </statements>
 </sqlMap>

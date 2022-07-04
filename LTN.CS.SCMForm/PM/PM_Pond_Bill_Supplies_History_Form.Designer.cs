@@ -29,10 +29,8 @@ namespace LTN.CS.SCMForm.PM
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.gToolStrip1 = new LTN.CS.Core.Helper.GToolStrip();
-            this.btn_query = new LTN.CS.Core.Helper.GToolStripButton();
             this.txt_WgtlistNo = new DevExpress.XtraEditors.TextEdit();
             this.txt_PlanNo = new DevExpress.XtraEditors.TextEdit();
             this.txt_WagNo = new DevExpress.XtraEditors.TextEdit();
@@ -44,7 +42,8 @@ namespace LTN.CS.SCMForm.PM
             this.车皮号 = new DevExpress.XtraLayout.LayoutControlItem();
             this.结束时间 = new DevExpress.XtraLayout.LayoutControlItem();
             this.开始时间 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.gToolStrip1 = new LTN.CS.Core.Helper.GToolStrip();
+            this.btn_query = new LTN.CS.Core.Helper.GToolStripButton();
             this.gCtrl_HistoryPondBillSupplies = new DevExpress.XtraGrid.GridControl();
             this.gView_HistoryPondBillSupplies = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -86,9 +85,9 @@ namespace LTN.CS.SCMForm.PM
             this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gToolStripButton1 = new LTN.CS.Core.Helper.GToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            this.gToolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_WgtlistNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_PlanNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_WagNo.Properties)).BeginInit();
@@ -102,14 +101,13 @@ namespace LTN.CS.SCMForm.PM
             ((System.ComponentModel.ISupportInitialize)(this.车皮号)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.结束时间)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.开始时间)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            this.gToolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gCtrl_HistoryPondBillSupplies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gView_HistoryPondBillSupplies)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.gToolStrip1);
             this.layoutControl1.Controls.Add(this.txt_WgtlistNo);
             this.layoutControl1.Controls.Add(this.txt_PlanNo);
             this.layoutControl1.Controls.Add(this.txt_WagNo);
@@ -120,76 +118,51 @@ namespace LTN.CS.SCMForm.PM
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(56, 157, 450, 400);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(1232, 78);
+            this.layoutControl1.Size = new System.Drawing.Size(949, 78);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // gToolStrip1
-            // 
-            this.gToolStrip1.AutoSize = false;
-            this.gToolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.gToolStrip1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.gToolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btn_query});
-            this.gToolStrip1.Location = new System.Drawing.Point(12, 12);
-            this.gToolStrip1.Name = "gToolStrip1";
-            this.gToolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.gToolStrip1.Size = new System.Drawing.Size(101, 54);
-            this.gToolStrip1.TabIndex = 1;
-            this.gToolStrip1.Text = "gToolStrip1";
-            this.gToolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.gToolStrip1_ItemClicked);
-            // 
-            // btn_query
-            // 
-            this.btn_query.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btn_query.AutoSize = false;
-            this.btn_query.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_query.Image = global::LTN.CS.SCMForm.Properties.Resources.Query1_32;
-            this.btn_query.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btn_query.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_query.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_query.MergeIndex = 0;
-            this.btn_query.Name = "btn_query";
-            this.btn_query.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
-            this.btn_query.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btn_query.Size = new System.Drawing.Size(100, 50);
-            this.btn_query.Text = "查询";
-            this.btn_query.Click += new System.EventHandler(this.btn_query_Click);
-            // 
             // txt_WgtlistNo
             // 
-            this.txt_WgtlistNo.Location = new System.Drawing.Point(184, 12);
+            this.txt_WgtlistNo.Location = new System.Drawing.Point(79, 12);
             this.txt_WgtlistNo.Margin = new System.Windows.Forms.Padding(4);
             this.txt_WgtlistNo.Name = "txt_WgtlistNo";
-            this.txt_WgtlistNo.Size = new System.Drawing.Size(292, 20);
+            this.txt_WgtlistNo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_WgtlistNo.Properties.Appearance.Options.UseFont = true;
+            this.txt_WgtlistNo.Size = new System.Drawing.Size(222, 26);
             this.txt_WgtlistNo.StyleController = this.layoutControl1;
             this.txt_WgtlistNo.TabIndex = 4;
             // 
             // txt_PlanNo
             // 
-            this.txt_PlanNo.Location = new System.Drawing.Point(547, 12);
+            this.txt_PlanNo.Location = new System.Drawing.Point(372, 12);
             this.txt_PlanNo.Margin = new System.Windows.Forms.Padding(4);
             this.txt_PlanNo.Name = "txt_PlanNo";
-            this.txt_PlanNo.Size = new System.Drawing.Size(318, 20);
+            this.txt_PlanNo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_PlanNo.Properties.Appearance.Options.UseFont = true;
+            this.txt_PlanNo.Size = new System.Drawing.Size(257, 26);
             this.txt_PlanNo.StyleController = this.layoutControl1;
             this.txt_PlanNo.TabIndex = 5;
             // 
             // txt_WagNo
             // 
-            this.txt_WagNo.Location = new System.Drawing.Point(936, 12);
+            this.txt_WagNo.Location = new System.Drawing.Point(700, 12);
             this.txt_WagNo.Margin = new System.Windows.Forms.Padding(4);
             this.txt_WagNo.Name = "txt_WagNo";
-            this.txt_WagNo.Size = new System.Drawing.Size(284, 20);
+            this.txt_WagNo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_WagNo.Properties.Appearance.Options.UseFont = true;
+            this.txt_WagNo.Size = new System.Drawing.Size(220, 26);
             this.txt_WagNo.StyleController = this.layoutControl1;
             this.txt_WagNo.TabIndex = 6;
             // 
             // date_StartTime
             // 
             this.date_StartTime.EditValue = null;
-            this.date_StartTime.Location = new System.Drawing.Point(184, 36);
+            this.date_StartTime.Location = new System.Drawing.Point(79, 42);
             this.date_StartTime.Margin = new System.Windows.Forms.Padding(4);
             this.date_StartTime.Name = "date_StartTime";
+            this.date_StartTime.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date_StartTime.Properties.Appearance.Options.UseFont = true;
             this.date_StartTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.date_StartTime.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -199,16 +172,18 @@ namespace LTN.CS.SCMForm.PM
             this.date_StartTime.Properties.EditFormat.FormatString = "{0:yyyy-MM-dd HH:mm:ss}";
             this.date_StartTime.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.date_StartTime.Properties.Mask.EditMask = "yyyy-MM-dd HH:mm:ss";
-            this.date_StartTime.Size = new System.Drawing.Size(492, 20);
+            this.date_StartTime.Size = new System.Drawing.Size(376, 26);
             this.date_StartTime.StyleController = this.layoutControl1;
             this.date_StartTime.TabIndex = 7;
             // 
             // date_EndTime
             // 
             this.date_EndTime.EditValue = null;
-            this.date_EndTime.Location = new System.Drawing.Point(747, 36);
+            this.date_EndTime.Location = new System.Drawing.Point(526, 42);
             this.date_EndTime.Margin = new System.Windows.Forms.Padding(4);
             this.date_EndTime.Name = "date_EndTime";
+            this.date_EndTime.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date_EndTime.Properties.Appearance.Options.UseFont = true;
             this.date_EndTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.date_EndTime.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -218,7 +193,7 @@ namespace LTN.CS.SCMForm.PM
             this.date_EndTime.Properties.EditFormat.FormatString = "{0:yyyy-MM-dd HH:mm:ss}";
             this.date_EndTime.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.date_EndTime.Properties.Mask.EditMask = "yyyy-MM-dd HH:mm:ss";
-            this.date_EndTime.Size = new System.Drawing.Size(473, 20);
+            this.date_EndTime.Size = new System.Drawing.Size(394, 26);
             this.date_EndTime.StyleController = this.layoutControl1;
             this.date_EndTime.TabIndex = 8;
             // 
@@ -231,13 +206,12 @@ namespace LTN.CS.SCMForm.PM
             this.委托号,
             this.车皮号,
             this.结束时间,
-            this.开始时间,
-            this.layoutControlItem2});
+            this.开始时间});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.OptionsPrint.AppearanceGroupCaption.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.layoutControlGroup1.OptionsPrint.AppearanceGroupCaption.Options.UseFont = true;
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1232, 78);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(932, 80);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -246,9 +220,9 @@ namespace LTN.CS.SCMForm.PM
             this.layoutControlItem1.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem1.Control = this.txt_WgtlistNo;
             this.layoutControlItem1.CustomizationFormText = "码单号";
-            this.layoutControlItem1.Location = new System.Drawing.Point(105, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(363, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(293, 30);
             this.layoutControlItem1.Text = "码单号";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(64, 19);
             // 
@@ -257,9 +231,9 @@ namespace LTN.CS.SCMForm.PM
             this.委托号.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.委托号.AppearanceItemCaption.Options.UseFont = true;
             this.委托号.Control = this.txt_PlanNo;
-            this.委托号.Location = new System.Drawing.Point(468, 0);
+            this.委托号.Location = new System.Drawing.Point(293, 0);
             this.委托号.Name = "委托号";
-            this.委托号.Size = new System.Drawing.Size(389, 24);
+            this.委托号.Size = new System.Drawing.Size(328, 30);
             this.委托号.TextSize = new System.Drawing.Size(64, 19);
             // 
             // 车皮号
@@ -267,9 +241,9 @@ namespace LTN.CS.SCMForm.PM
             this.车皮号.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.车皮号.AppearanceItemCaption.Options.UseFont = true;
             this.车皮号.Control = this.txt_WagNo;
-            this.车皮号.Location = new System.Drawing.Point(857, 0);
+            this.车皮号.Location = new System.Drawing.Point(621, 0);
             this.车皮号.Name = "车皮号";
-            this.车皮号.Size = new System.Drawing.Size(355, 24);
+            this.车皮号.Size = new System.Drawing.Size(291, 30);
             this.车皮号.TextSize = new System.Drawing.Size(64, 19);
             // 
             // 结束时间
@@ -277,9 +251,9 @@ namespace LTN.CS.SCMForm.PM
             this.结束时间.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.结束时间.AppearanceItemCaption.Options.UseFont = true;
             this.结束时间.Control = this.date_EndTime;
-            this.结束时间.Location = new System.Drawing.Point(668, 24);
+            this.结束时间.Location = new System.Drawing.Point(447, 30);
             this.结束时间.Name = "结束时间";
-            this.结束时间.Size = new System.Drawing.Size(544, 34);
+            this.结束时间.Size = new System.Drawing.Size(465, 30);
             this.结束时间.TextSize = new System.Drawing.Size(64, 19);
             // 
             // 开始时间
@@ -287,23 +261,42 @@ namespace LTN.CS.SCMForm.PM
             this.开始时间.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.开始时间.AppearanceItemCaption.Options.UseFont = true;
             this.开始时间.Control = this.date_StartTime;
-            this.开始时间.Location = new System.Drawing.Point(105, 24);
+            this.开始时间.Location = new System.Drawing.Point(0, 30);
             this.开始时间.Name = "开始时间";
-            this.开始时间.Size = new System.Drawing.Size(563, 34);
+            this.开始时间.Size = new System.Drawing.Size(447, 30);
             this.开始时间.TextSize = new System.Drawing.Size(64, 19);
             // 
-            // layoutControlItem2
+            // gToolStrip1
             // 
-            this.layoutControlItem2.Control = this.gToolStrip1;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem2.MaxSize = new System.Drawing.Size(105, 58);
-            this.layoutControlItem2.MinSize = new System.Drawing.Size(105, 58);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(105, 58);
-            this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem2.Text = " ";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
+            this.gToolStrip1.AutoSize = false;
+            this.gToolStrip1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.gToolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_query,
+            this.gToolStripButton1});
+            this.gToolStrip1.Location = new System.Drawing.Point(0, 78);
+            this.gToolStrip1.Name = "gToolStrip1";
+            this.gToolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.gToolStrip1.Size = new System.Drawing.Size(949, 54);
+            this.gToolStrip1.TabIndex = 1;
+            this.gToolStrip1.Text = "gToolStrip1";
+            this.gToolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.gToolStrip1_ItemClicked);
+            // 
+            // btn_query
+            // 
+            this.btn_query.AutoSize = false;
+            this.btn_query.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_query.Image = global::LTN.CS.SCMForm.Properties.Resources.Query_24;
+            this.btn_query.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btn_query.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_query.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_query.MergeIndex = 0;
+            this.btn_query.Name = "btn_query";
+            this.btn_query.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
+            this.btn_query.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_query.Size = new System.Drawing.Size(70, 50);
+            this.btn_query.Text = "查询";
+            this.btn_query.Click += new System.EventHandler(this.btn_query_Click);
             // 
             // gCtrl_HistoryPondBillSupplies
             // 
@@ -312,12 +305,12 @@ namespace LTN.CS.SCMForm.PM
             this.gCtrl_HistoryPondBillSupplies.EmbeddedNavigator.Appearance.Options.UseFont = true;
             this.gCtrl_HistoryPondBillSupplies.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gCtrl_HistoryPondBillSupplies.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
-            this.gCtrl_HistoryPondBillSupplies.Location = new System.Drawing.Point(0, 78);
+            gridLevelNode2});
+            this.gCtrl_HistoryPondBillSupplies.Location = new System.Drawing.Point(0, 132);
             this.gCtrl_HistoryPondBillSupplies.MainView = this.gView_HistoryPondBillSupplies;
             this.gCtrl_HistoryPondBillSupplies.Margin = new System.Windows.Forms.Padding(4);
             this.gCtrl_HistoryPondBillSupplies.Name = "gCtrl_HistoryPondBillSupplies";
-            this.gCtrl_HistoryPondBillSupplies.Size = new System.Drawing.Size(1232, 845);
+            this.gCtrl_HistoryPondBillSupplies.Size = new System.Drawing.Size(949, 353);
             this.gCtrl_HistoryPondBillSupplies.TabIndex = 2;
             this.gCtrl_HistoryPondBillSupplies.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gView_HistoryPondBillSupplies});
@@ -378,6 +371,7 @@ namespace LTN.CS.SCMForm.PM
             this.gView_HistoryPondBillSupplies.OptionsView.ShowGroupPanel = false;
             this.gView_HistoryPondBillSupplies.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gView_HistoryPondBillSupplies_CustomDrawCell);
             this.gView_HistoryPondBillSupplies.DoubleClick += new System.EventHandler(this.gView_HistoryPondBillSupplies_DoubleClick);
+            this.gView_HistoryPondBillSupplies.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gView_HistoryPondBillSupplies_RowCellStyle); 
             // 
             // gridColumn1
             // 
@@ -387,7 +381,7 @@ namespace LTN.CS.SCMForm.PM
             this.gridColumn1.FieldName = "PlanNo";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.VisibleIndex = 1;
             this.gridColumn1.Width = 143;
             // 
             // gridColumn2
@@ -396,7 +390,7 @@ namespace LTN.CS.SCMForm.PM
             this.gridColumn2.FieldName = "WagNo";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.VisibleIndex = 2;
             this.gridColumn2.Width = 122;
             // 
             // gridColumn3
@@ -405,7 +399,7 @@ namespace LTN.CS.SCMForm.PM
             this.gridColumn3.FieldName = "WgtlistNo";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.VisibleIndex = 0;
             this.gridColumn3.Width = 149;
             // 
             // gridColumn4
@@ -718,21 +712,29 @@ namespace LTN.CS.SCMForm.PM
             this.gridColumn39.FieldName = "UpDateColumns";
             this.gridColumn39.Name = "gridColumn39";
             // 
+            // gToolStripButton1
+            // 
+            this.gToolStripButton1.Image = global::LTN.CS.SCMForm.Properties.Resources.Refresh1_32;
+            this.gToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.gToolStripButton1.Name = "gToolStripButton1";
+            this.gToolStripButton1.Size = new System.Drawing.Size(68, 51);
+            this.gToolStripButton1.Text = "恢复";
+            this.gToolStripButton1.Click += new System.EventHandler(this.gToolStripButton1_Click);
+            // 
             // PM_Pond_Bill_Supplies_History_Form
             // 
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1232, 923);
+            this.ClientSize = new System.Drawing.Size(949, 485);
             this.Controls.Add(this.gCtrl_HistoryPondBillSupplies);
+            this.Controls.Add(this.gToolStrip1);
             this.Controls.Add(this.layoutControl1);
             this.Name = "PM_Pond_Bill_Supplies_History_Form";
             this.Text = "物资磅单历史记录";
             this.Load += new System.EventHandler(this.PM_Pond_Bill_Supplies_History_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            this.gToolStrip1.ResumeLayout(false);
-            this.gToolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_WgtlistNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_PlanNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_WagNo.Properties)).EndInit();
@@ -746,7 +748,8 @@ namespace LTN.CS.SCMForm.PM
             ((System.ComponentModel.ISupportInitialize)(this.车皮号)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.结束时间)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.开始时间)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            this.gToolStrip1.ResumeLayout(false);
+            this.gToolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gCtrl_HistoryPondBillSupplies)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gView_HistoryPondBillSupplies)).EndInit();
             this.ResumeLayout(false);
@@ -810,6 +813,6 @@ namespace LTN.CS.SCMForm.PM
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn37;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn38;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn39;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private Core.Helper.GToolStripButton gToolStripButton1;
     }
 }

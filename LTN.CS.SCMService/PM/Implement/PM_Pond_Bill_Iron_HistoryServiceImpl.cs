@@ -10,16 +10,16 @@ using System.Text;
 
 namespace LTN.CS.SCMService.PM.Implement
 {
-    public class PM_Pond_Bill_Supplies_HistoryServiceImpl : IPM_Pond_Bill_Supplies_HistoryService
+    public class PM_Pond_Bill_Iron_HistoryServiceImpl : IPM_Pond_Bill_Iron_HistoryService
     {
         public ICommonDao CommonDao { get; set; }
         private readonly ILog log = LogManager.GetLogger("infoAppender");
-        public IList<PM_Pond_Bill_Supplies_History> ExecuteDB_QueryPM_Pond_Bill_Supplies_HistoryByHashtable(Hashtable ht)
+        public IList<PM_Pond_Bill_Iron_History> ExecuteDB_QueryPM_Pond_Bill_Iron_HistoryByHashtable(Hashtable ht)
         {
-            IList<PM_Pond_Bill_Supplies_History> rs = null;
+            IList<PM_Pond_Bill_Iron_History> rs = null;
             try
             {
-                rs = CommonDao.ExecuteQueryForList<PM_Pond_Bill_Supplies_History>("QueryPM_Pond_Bill_Supplies_HistoryByHashtable", ht);
+                rs = CommonDao.ExecuteQueryForList<PM_Pond_Bill_Iron_History>("QueryPM_Pond_Bill_Iron_HistoryByHashtable", ht);
             }
             catch (Exception ex)
             {
@@ -28,13 +28,12 @@ namespace LTN.CS.SCMService.PM.Implement
             return rs;
         }
 
-
-        public IList<PM_Pond_Bill_Supplies> ExecuteDB_QuerySuppliesIsRepeatByPlanNo(string PlanNo)
+        public IList<PM_Pond_Bill_Iron> ExecuteDB_QueryIronIsRepeatByPlanNo(string PlanNo)
         {
-            IList<PM_Pond_Bill_Supplies> rs = null;
+            IList<PM_Pond_Bill_Iron> rs = null;
             try
             {
-                rs = CommonDao.ExecuteQueryForList<PM_Pond_Bill_Supplies>("QuerySuppliesDataIsRepeatByPlanNo", PlanNo);
+                rs = CommonDao.ExecuteQueryForList<PM_Pond_Bill_Iron>("QueryIronDataIsRepeatByPlanNo", PlanNo);
             }
             catch (Exception ex)
             {
@@ -42,12 +41,12 @@ namespace LTN.CS.SCMService.PM.Implement
             }
             return rs;
         }
-        public object ExecuteDB_UpdateSuppliesPondByIntId(PM_Pond_Bill_Supplies pond)
+        public object ExecuteDB_UpdateIronPondByIntId(PM_Pond_Bill_Iron pond)
         {
             object result;
             try
             {
-                result = CommonDao.ExecuteUpdate("UpdatePM_Pond_Bill_SuppliesStatus", pond);
+                result = CommonDao.ExecuteUpdate("UpdatePM_Pond_Bill_IronFlag", pond);
             }
             catch (Exception ex)
             {
@@ -57,12 +56,12 @@ namespace LTN.CS.SCMService.PM.Implement
             return result;
         }
 
-        public object ExecuteDB_UpdateSuppliesHistroyDataFlagByIntId(PM_Pond_Bill_Supplies_History history)
+        public object ExecuteDB_UpdateIronHistroyDataFlagByIntId(PM_Pond_Bill_Iron_History history)
         {
             object result;
             try
             {
-                result = CommonDao.ExecuteUpdate("UpdateSuppliesDataFlagByIntId", history);
+                result = CommonDao.ExecuteUpdate("UpdateIronDataFlagByIntId", history);
             }
             catch (Exception ex)
             {
@@ -71,12 +70,12 @@ namespace LTN.CS.SCMService.PM.Implement
             }
             return result;
         }
-        public PM_Pond_Bill_Supplies ExecuteDB_QuerySuppliesByWgtlistNo(string WgtlistNo)
+        public PM_Pond_Bill_Iron ExecuteDB_QueryIronByWgtlistNo(string WgtlistNo)
         {
-            PM_Pond_Bill_Supplies result;
+            PM_Pond_Bill_Iron result;
             try
             {
-                result = CommonDao.ExecuteQueryForObject<PM_Pond_Bill_Supplies>("QueryBywgiston", WgtlistNo);
+                result = CommonDao.ExecuteQueryForObject<PM_Pond_Bill_Iron>("QueryBywgiston1", WgtlistNo);
             }
             catch (Exception ex)
             {
@@ -86,6 +85,5 @@ namespace LTN.CS.SCMService.PM.Implement
             return result;
         }
       
-
     }
 }

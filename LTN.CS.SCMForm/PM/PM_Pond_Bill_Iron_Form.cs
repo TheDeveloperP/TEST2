@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraPrinting;
 using LTN.CS.Base;
+using LTN.CS.Base.Common;
 using LTN.CS.Core.Common;
 using LTN.CS.Core.Helper;
 using LTN.CS.SCMEntities.PM;
@@ -205,11 +206,17 @@ namespace LTN.CS.SCMForm.PM
                 if (MessageDxUtil.ShowYesNoAndTips("确定作废当前选中数据？") == DialogResult.Yes)
                 {
                     SelectMainEntity = gvw_main.GetFocusedRow() as PM_Pond_Bill_Iron;
+
+                    //2022.6.14 li 历史记录表插入
+                    var rss = MainService.ExecuteDB_InsertDateToBillIron(SelectMainEntity);               
+
                     SelectMainEntity.DataFlag = new EntityInt(0);
                     SelectMainEntity.PlanStatus = "D";
                     SelectMainEntity.UpLoadStatus = "N";
                     SelectMainEntity.UpdateTime = DateTime.Now.ToString("yyyyMMddHHmmss");
                     SelectMainEntity.UpdateUser = SessionHelper.LogUserNickName;
+                    SelectMainEntity.BillStatus = new BillStatusObj() { IntValue = (int)BillStatus.InvalidMeasure };
+
                     var rs = MainService.ExecuteDB_InvalidIronPondByIntId(SelectMainEntity);
                     if (rs is CustomDBError)
                     {
@@ -219,6 +226,7 @@ namespace LTN.CS.SCMForm.PM
                     {
                         SetMainGridData(false);
                     }
+
                 }
             }
             catch (Exception ex)
@@ -271,6 +279,7 @@ namespace LTN.CS.SCMForm.PM
         private void btn_Invalid_Click(object sender, EventArgs e)
         {
             CustomMainDelete();
+            
         }
 
         private void gvw_main_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -357,6 +366,11 @@ namespace LTN.CS.SCMForm.PM
             {
                 SetMainGridData(false);
             }
+        }
+
+        private void gToolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
 
     }

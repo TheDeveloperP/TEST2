@@ -149,15 +149,6 @@ namespace LTN.CS.SCMForm.PM
             {
                 ht.Add("WgtNo", txt_WgtlistNo.Text.Trim());
             }
-            //增加对时间的查询选择
-            if (check_queryByCreatetime.Checked)
-            {
-                ht.Add("timeType", 1);
-            }
-            else
-            {
-                ht.Add("timeType", 0);
-            }
             ht.Add("StartTime", CommonHelper.TimeToStr14(MyDateTimeHelper.ConvertToDateTimeDefaultNow(date_StartTime.Text)));
             ht.Add("EndTime", CommonHelper.TimeToStr14(MyDateTimeHelper.ConvertToDateTimeDefaultNow(date_EndTime.Text)));
             return ht;
@@ -464,23 +455,27 @@ namespace LTN.CS.SCMForm.PM
         private void gToolStripButton5_Click(object sender, EventArgs e)
         {
             IList<PM_Bill_Truck> list = new List<PM_Bill_Truck>();
-            var item = gView_TruckPoundBill.GetFocusedRow();
-            if (item == null)
-                return;
-            PM_Bill_Truck truck = MainService.ExecuteDB_QueryBillTruckByWgistonNo((item as PM_Bill_Truck).C_WGTLISTNO);
-            if (truck == null)
-                return;
-          
-            if (truck.I_ONETWOPLAN == 1)
-            {
-                truck.C_FROMDEPTNAME = truck.C_MIDDLEDEPTNAME;
-                truck.I_PRINTNUM += 1;
-                var rs = MainService.ExecuteDB_UpdatePM_Bill_Truck3(truck);
 
-                Wgstion.wgistion1 = truck.C_WGTLISTNO;
-                list.Add(truck);
-                XtraReport2 xt = new XtraReport2();   
-               // XtraReport2_2 xt = new XtraReport2_2();
+            int[] rowHandles = gView_TruckPoundBill.GetSelectedRows();
+            if (rowHandles.Count() > 0)
+            {
+                for (int i = rowHandles.Count() - 1; i >= 0; i--)
+                {
+                    PM_Bill_Truck truck = MainService.ExecuteDB_QueryBillTruckByWgistonNo(gView_TruckPoundBill.GetRowCellValue(rowHandles[i], "C_WGTLISTNO").ToString());
+                    if (truck != null)
+                    {
+                        if (truck.I_ONETWOPLAN == 1)
+                        {
+                            truck.C_FROMDEPTNAME = truck.C_MIDDLEDEPTNAME;
+                        }
+                        truck.I_PRINTNUM += 1;
+                        var rs = MainService.ExecuteDB_UpdatePM_Bill_Truck3(truck);
+                        Wgstion.wgistion1 = truck.C_WGTLISTNO;
+                        list.Add(truck);
+                    }
+                }
+                //XtraReport2_2 xt = new XtraReport2_2();
+                XtraReport2 xt = new XtraReport2();
                 xt.DataSource = list;
                 xt.PageHeight = 500;
                 xt.PageWidth = 827;
@@ -492,16 +487,6 @@ namespace LTN.CS.SCMForm.PM
                 xt.Print(sDefault);
                 SetGridData(false);
             }
-            
-
-            //DateTime dt = Convert.ToDateTime(CommonHelper.Str14ToTimeFormart(truck.C_GROSSWGTTIME));
-            //truck.C_GROSSWGTTIME = dt.ToString("MM-dd HH:mm");
-            //dt = Convert.ToDateTime(CommonHelper.Str14ToTimeFormart(truck.C_TAREWGTTIME));
-            //truck.C_TAREWGTTIME = dt.ToString("MM-dd HH:mm");
-            //truck.N_GROSSWGT = truck.N_GROSSWGT / 1000;
-            //truck.N_TAREWGT = truck.N_TAREWGT / 1000;
-            //truck.N_NETWGT = truck.N_NETWGT / 1000;
-           
         }
 
         private void gView_TruckPoundBill_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)

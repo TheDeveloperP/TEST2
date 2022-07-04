@@ -57,6 +57,8 @@ namespace LTN.CS.SCMService.PM.Interface
         object ExecuteDB_BatchUpdateSuppliesBill(List<string> SuppliesBillWgtNos, Hashtable ht);
         //新增
         IList<PM_Pond_Bill_Supplies> ExecuteDB_QueryHistoryByWagNo(Hashtable ht);
+        //作废时插入历史表数据
+        object ExecuteDB_InsertDateToBillSupplies(PM_Pond_Bill_Supplies pond);
 
 
     }

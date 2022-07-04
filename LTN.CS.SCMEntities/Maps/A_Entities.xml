@@ -38,6 +38,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
     <typeAlias alias="PM_Bill_Truck" type="LTN.CS.SCMEntities.PM.PM_Bill_Truck,LTN.CS.SCMEntities" />
     <typeAlias alias="PM_Bill_Iron" type="LTN.CS.SCMEntities.PM.PM_Bill_Iron,LTN.CS.SCMEntities" />
     <typeAlias alias="PM_Pond_Bill_Iron" type="LTN.CS.SCMEntities.PM.PM_Pond_Bill_Iron,LTN.CS.SCMEntities" />
+    <typeAlias alias="PM_Pond_Bill_Iron_History" type="LTN.CS.SCMEntities.PM.PM_Pond_Bill_Iron_History,LTN.CS.SCMEntities" />
     <typeAlias alias="PM_Bill_BeltScale" type="LTN.CS.SCMEntities.PM.PM_Bill_BeltScale,LTN.CS.SCMEntities" />
     <typeAlias alias="PM_Bill_Belt"      type="LTN.CS.SCMEntities.PM.PM_Bill_Belt,LTN.CS.SCMEntities" />
     <typeAlias alias="PM_RawData_MoveTrain" type="LTN.CS.SCMEntities.PM.PM_RawData_MoveTrain,LTN.CS.SCMEntities" />

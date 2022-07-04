@@ -291,6 +291,7 @@
             this.gToolStrip1.Size = new System.Drawing.Size(912, 35);
             this.gToolStrip1.TabIndex = 4;
             this.gToolStrip1.Text = "gToolStrip1";
+            this.gToolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.gToolStrip1_ItemClicked);
             // 
             // btn_query
             // 

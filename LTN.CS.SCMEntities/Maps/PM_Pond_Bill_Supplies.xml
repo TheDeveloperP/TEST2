@@ -1424,6 +1424,13 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
       ) a where rownum &lt; 4
       
     </select>
+
+    <select id="QuerySuppliesDataIsRepeatByPlanNo" resultMap="SelectPM_Pond_Bill_SuppliesAllResult"   parameterClass="string">
+      select * FROM PM_Pond_Bill_Supplies
+      where I_DATAFLAG = 1
+      and I_BILLSTATUS != 3
+      and C_PLANNO = #PLANNO#
+    </select>
     
   </statements>
 </sqlMap>

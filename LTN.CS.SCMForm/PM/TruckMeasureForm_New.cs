@@ -2441,6 +2441,34 @@ namespace LTN.CS.SCMForm.PM
                 ShowTxtLog(ex.Message);
             }
         }
+        /// <summary>
+        /// 新增 李佳政  回皮时间超过两天提示
+        /// </summary>
+        /// <param name="isMoreThan"></param>
+        private void CheckLastWeightTime1(ref bool isMoreThan)
+        {
+            try
+            {
+                IList<PM_Bill_Truck> billList = billTruckService.ExecuteDB_QueryLatestPM_Bill_TruckByCarNo1(carName);
+                if (billList != null && billList.Count > 0)
+                {
+                    DateTime dateNow = Convert.ToDateTime(DateTime.Now);
+                    if (dateNow != null)
+                    {
+                        DateTime dateLastTime = Convert.ToDateTime(CommonHelper.Str14ToTimeFormart(billList[0].C_GROSSWGTTIME));
+                        TimeSpan ts = dateNow - dateLastTime;
+                        if (ts.TotalMinutes > 2880)
+                        {
+                            isMoreThan = true;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ShowTxtLog(ex.Message);
+            }
+        }
         private string getWglistNo(string siteNo)
         {
             string date = blackService.ExecuteDB_GetDBTimeNow().ToString("yyyyMMddHHmmss");
@@ -3554,7 +3582,7 @@ namespace LTN.CS.SCMForm.PM
                     {
                         if (PondDataBufferLocal.PondHardInfoForSite.MeterOneWeight >= 49000)
                         {                            
-                            ShowTxtLog(txt_MaterName.Text.Trim() + "该品名重车进厂超过49吨，过磅请注意!");                            
+                            ShowTxtLog(txt_MaterName.Text.Trim() + "该品名重车进厂超过了49吨，过磅请注意!");                            
                             DialogResult rs = MessageBox.Show(txt_MaterName.Text.Trim() + "该品名重车进厂超过了49吨，是否取消过磅？", DialogStr, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                             if (rs == DialogResult.Yes)
                             {

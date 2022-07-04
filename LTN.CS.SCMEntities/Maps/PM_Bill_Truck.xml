@@ -1439,6 +1439,99 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
       where C_CARNAME = #value#  and C_BILLSTATE!=2
       order by C_NETWGTTIME desc
     </select>
+
+    <select id="Select_LatestPM_Bill_TruckByCarNo1" resultMap="QueryPM_Bill_TruckResultSet"   parameterClass="string">
+      select
+      I_INTID,
+      C_PLANNO,
+      C_CARNO,
+      C_CARNAME,
+      C_CARSERIALNUMBER,
+      C_CONTRACTNO,
+      C_MATERIALNO,
+      C_MATERIALNAME,
+      C_FROMDEPTNO,
+      C_FROMDEPTNAME,
+      C_FROMSTORENO,
+      C_FROMSTORENAME,
+      C_TODEPTNO,
+      C_TODEPTNAME,
+      C_TOSTORENO,
+      C_TOSTORENAME,
+      I_BUSINESSTYPE,
+      I_PLANTYPE,
+      I_ISAUTO,
+      I_WEIGHTTYPE,
+      I_TARETIMELIMIT,
+      I_ONEMORESTOCK,
+      I_ISCHILDIDENFY,
+      I_ISCREATEMOTHERPOND,
+      C_CONNECTPLANNO,
+      I_ONETWOPLAN,
+      C_MIDDLEDEPTNO,
+      C_MIDDLEDEPTNAME,
+      C_MIDDLESTORENO,
+      C_MIDDLESTORENAME,
+      I_RETALLYKG,
+      I_COMPUTERTYPE,
+      I_DOWNVALUE,
+      I_UPVALUE,
+      C_PERCENTAGE,
+      C_SHIPPINGNOTE,
+      I_REPEATPOUND,
+      C_PLANLIMITTIME,
+      C_PONDLIMIT,
+      C_CREATETIME,
+      C_CREATEUSERNAME,
+      C_REMARK,
+      C_RESERVE1,
+      C_RESERVE2,
+      C_RESERVE3,
+      I_RESERVE1,
+      I_RESERVE2,
+      I_RESERVE3,
+      C_PLANSTATE,
+      C_WGTLISTNO,
+      C_BARCODENO,
+      N_TAREWGT,
+      N_GROSSWGT,
+      N_NETWGT,
+      C_TAREWGTTIME,
+      C_GROSSWGTTIME,
+      C_NETWGTTIME,
+      C_TAREWGTSITENO,
+      C_TAREWGTSITENAME,
+      C_GROSSWGTSITENO,
+      C_GROSSWGTSITENAME,
+      C_TAREWGTMAN,
+      C_GROSSWGTMAN,
+      I_RETURNFLAG,
+      C_PONDREMARK,
+      C_RESERVEFLAG1,
+      C_RESERVEFLAG2,
+      C_RESERVEFLAG3,
+      I_RESERVEFLAG1,
+      I_RESERVEFLAG2,
+      I_RESERVEFLAG3,
+      C_BILLSTATE,
+      C_UPDATEUSERNAME,
+      C_UPDATETIME,
+      C_BILLCREATETIME,
+      C_BILLCREATEUSERNAME,
+      I_REPEATFLAG,
+      C_UPLOADSTATUE,
+      C_PLANSTATUS,
+      C_CONTAINERNO,
+      C_RESERVE4,
+      C_RESERVE5,
+      C_RESERVE6,
+      C_RESERVE7,
+      strFilePath
+      from PM_BILL_TRUCK t
+      where C_CARNAME = #value#  and C_BILLSTATE = 0 and I_WEIGHTTYPE = 2
+      order by C_CREATETIME desc
+    </select>
+    
     <select id="Select_PM_Bill_TruckByCarNo2" resultMap="QueryPM_Bill_TruckResultSet"   parameterClass="string">
       select
       I_INTID,
@@ -2590,137 +2683,6 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
     <update id="Invalid_PM_TruckMeasureByHashTable_New" parameterClass="HashTable">
       update PT_TRUCKMEASUREPLAN set C_PLANSTATE=#State#   where C_PLANNO=#PlanNo#
     </update>
-    <!--新增  根据磅单创建时间-->
-    <select id="Select_PM_Bill_TruckByConditions_BillCreatetime" resultMap="QueryPM_Bill_TruckResultPrint"   parameterClass="HashTable">
-      select
-      I_INTID,
-      C_PLANNO,
-      C_CARNO,
-      C_CARNAME,
-      C_CARSERIALNUMBER,
-      C_CONTRACTNO,
-      C_MATERIALNO,
-      C_MATERIALNAME,
-      C_FROMDEPTNO,
-      C_FROMDEPTNAME,
-      C_FROMSTORENO,
-      C_FROMSTORENAME,
-      C_TODEPTNO,
-      C_TODEPTNAME,
-      C_TOSTORENO,
-      C_TOSTORENAME,
-      I_BUSINESSTYPE,
-      I_PLANTYPE,
-      I_ISAUTO,
-      I_WEIGHTTYPE,
-      I_TARETIMELIMIT,
-      I_ONEMORESTOCK,
-      I_ISCHILDIDENFY,
-      I_ISCREATEMOTHERPOND,
-      C_CONNECTPLANNO,
-      I_ONETWOPLAN,
-      C_MIDDLEDEPTNO,
-      C_MIDDLEDEPTNAME,
-      C_MIDDLESTORENO,
-      C_MIDDLESTORENAME,
-      I_RETALLYKG,
-      I_COMPUTERTYPE,
-      I_DOWNVALUE,
-      I_UPVALUE,
-      C_PERCENTAGE,
-      C_SHIPPINGNOTE,
-      I_REPEATPOUND,
-      C_PLANLIMITTIME,
-      C_PONDLIMIT,
-      C_CREATETIME,
-      C_CREATEUSERNAME,
-      C_REMARK,
-      C_RESERVE1,
-      C_RESERVE2,
-      C_RESERVE3,
-      I_RESERVE1,
-      I_RESERVE2,
-      I_RESERVE3,
-      C_PLANSTATE,
-      C_WGTLISTNO,
-      C_BARCODENO,
-      N_TAREWGT,
-      N_GROSSWGT,
-      N_NETWGT,
-      C_TAREWGTTIME,
-      C_GROSSWGTTIME,
-      C_NETWGTTIME,
-      C_TAREWGTSITENO,
-      C_TAREWGTSITENAME,
-      C_GROSSWGTSITENO,
-      C_GROSSWGTSITENAME,
-      C_TAREWGTMAN,
-      C_GROSSWGTMAN,
-      I_RETURNFLAG,
-      C_PONDREMARK,
-      C_RESERVEFLAG1,
-      C_RESERVEFLAG2,
-      C_RESERVEFLAG3,
-      I_RESERVEFLAG1,
-      I_RESERVEFLAG2,
-      I_RESERVEFLAG3,
-      C_BILLSTATE,
-      C_UPDATEUSERNAME,
-      C_UPDATETIME,
-      C_BILLCREATETIME,
-      C_BILLCREATEUSERNAME,
-      I_REPEATFLAG,
-      C_UPLOADSTATUE,
-      C_PLANSTATUS,
-      I_PRINTNUM,
-      C_CONTAINERNO,
-      C_RESERVE4,
-      C_RESERVE5,
-      C_RESERVE6,
-      C_RESERVE7,
-      strFilePath
-      from PM_BILL_TRUCK t
-      where C_BILLSTATE=1
-      <isNotEmpty prepend="AND" property="PlanNo">
-        t.C_PLANNO like '%$PlanNo$%'
-      </isNotEmpty>
-      <isNotEmpty prepend="AND" property="WgtNo">
-        t.C_WGTLISTNO like '%$WgtNo$%'
-      </isNotEmpty>
-      <isNotEmpty prepend="AND" property="CarName">
-        t.C_CARNAME like '%$CarName$%'
-      </isNotEmpty>
-      <isNotEmpty prepend="AND" property="FromDeptName">
-        t.C_FROMDEPTNAME = #FromDeptName#
-      </isNotEmpty>
-      <isNotEmpty prepend="AND" property="ToDeptName">
-        t.C_TODEPTNAME = #ToDeptName#
-      </isNotEmpty>
-      <isNotEmpty prepend="AND" property="MaterialName">
-        t.C_MATERIALNAME = #MaterialName#
-      </isNotEmpty>
-      <isNotEmpty prepend="AND" property="TareWgtListNo1">
-        <isNotEmpty property="GrossWgtListNo1">
-          <![CDATA[((t.C_TAREWGTSITENO in(#TareWgtListNo1#,#TareWgtListNo2#)) 
-          or (t.C_GROSSWGTSITENO in(#GrossWgtListNo1#,#GrossWgtListNo2#)))]]>
-        </isNotEmpty>
-      </isNotEmpty>
-      <!--<isNotEmpty prepend="AND" property="FromDeptName">
-        t.C_FROMDEPTNAME like '%$FromDeptName$%'
-      </isNotEmpty>
-      <isNotEmpty prepend="AND" property="ToDeptName">
-        t.C_TODEPTNAME like '%$ToDeptName$%'
-      </isNotEmpty>
-      <isNotEmpty prepend="AND" property="MaterialName">
-        t.C_MATERIALNAME like '%$MaterialName$%'
-      </isNotEmpty>-->
-      <isNotEmpty prepend="AND" property="StartTime">
-        <isNotEmpty  property="EndTime">
-          t.C_BILLCREATETIME between #StartTime# and #EndTime#
-        </isNotEmpty>
-      </isNotEmpty>
-      order by t.C_BILLCREATETIME desc
-    </select>
   </statements>
  
 </sqlMap>

@@ -108,11 +108,9 @@
     <property name="CarService" ref="SM_Car_InfoService"></property>
   </object>
   <!--RFID配置-->
-  
   <object id="SM_0012" type="LTN.CS.SCMForm.SM.SM_RFID_Info_Form,LTN.CS.SCMForm"  singleton="false"  >
     <property name="MainService" ref="SM_RFID_InfoService"></property>
   </object>
-  
   <!--物料超限设置-->
   <object id="SM_0013" type="LTN.CS.SCMForm.SM.SM_MatWGTLimit_Form,LTN.CS.SCMForm"  singleton="false"  >
     <property name="MainService" ref="SM_MatWGTLimitService"></property>
@@ -132,7 +130,6 @@
     <property name="MainService" ref="SM_ReeferContainer_RateService"></property>
     <property name="PoundSiteService" ref="SM_PoundSite_InfoService"></property>
   </object>
-
   
   <!---PT-->
   <object id="PT_001" type="LTN.CS.SCMForm.PT.PT_TruckMeasurePlan_Form,LTN.CS.SCMForm"  singleton="false"  >
@@ -335,10 +332,16 @@
     <property name="MainService" ref="PM_BeltHandlerService"></property>
     <property name="PT_BeltScalePlanService" ref="PT_BeltScalePlanService"></property>
   </object>
+  <!--李佳政 物资磅单历史记录-->
   <object id="PM_027" type="LTN.CS.SCMForm.PM.PM_Pond_Bill_Supplies_History_Form,LTN.CS.SCMForm"  singleton="false"  >
     <property name="MainService" ref="PM_Pond_Bill_Supplies_HistoryService"></property>
   </object>
-
+  <!--李佳政 铁水轨道衡磅单历史记录-->
+  <object id="PM_028" type="LTN.CS.SCMForm.PM.PM_Pond_Bill_Iron_History_From,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PM_Pond_Bill_Iron_HistoryService"></property>
+    <property name="pondService" ref="PM_Pond_Bill_IronService"></property>
+    <property name="billService" ref="PM_Bill_IronService"></property>
+  </object>
   
   <object id="RP_001" type="LTN.CS.SCMForm.RP.RP_Materiel_Report,LTN.CS.SCMForm"  singleton="false"  >    
     <property name="MainService" ref="PM_Pond_Bill_SuppliesService"></property>

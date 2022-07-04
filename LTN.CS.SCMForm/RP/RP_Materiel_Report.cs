@@ -213,6 +213,7 @@ namespace LTN.CS.SCMForm.RP
                             printEntity.Printer = SessionHelper.LogUserNickName;
                             printEntity.PrintTime = CommonHelper.TimeToStr14(DateTime.Now);
                             printEntity.WagNo = truck.WagNo;
+                            printEntity.PrintNum = truck.PrintNum;
                             printService.ExecuteDB_InsertRP_Print_Record(printEntity);
 
 
@@ -294,7 +295,7 @@ namespace LTN.CS.SCMForm.RP
                         Wgstion.wgistion1 = truck.WgtlistNo;
                         list.Add(truck);
 
-                        //报表打印记录 2022 4.25李佳政
+                        //物资衡报表打印记录 2022 4.25李佳政
                         printEntity = new RP_Materiel_PrintRecord();
                         printEntity.PlanNo = truck.PlanNo;
                         printEntity.WgtlistNo = truck.WgtlistNo;
@@ -302,6 +303,7 @@ namespace LTN.CS.SCMForm.RP
                         printEntity.Printer = SessionHelper.LogUserNickName;
                         printEntity.PrintTime = CommonHelper.TimeToStr14(DateTime.Now);
                         printEntity.WagNo = truck.WagNo;
+                        printEntity.PrintNum = truck.PrintNum;
                         printService.ExecuteDB_InsertRP_Print_Record(printEntity);
 
                         /*
@@ -524,6 +526,7 @@ namespace LTN.CS.SCMForm.RP
                             printEntity.Printer = SessionHelper.LogUserNickName;
                             printEntity.PrintTime = CommonHelper.TimeToStr14(DateTime.Now);
                             printEntity.WagNo = bill.WagNo;
+                            printEntity.PrintNum = bill.PrintNum;
                             printService.ExecuteDB_InsertRP_Print_Record(printEntity);
 
                             list.Add(bill);

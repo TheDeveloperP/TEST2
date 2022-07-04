@@ -177,7 +177,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
       I_IntId = #IntId#　
       ]]>
     </update>
-    
+
     <update id="UpdatePM_Pond_Bill_IronFlag"
                parameterClass="PM_Pond_Bill_Iron">
       update PM_Pond_Bill_Iron set
@@ -321,7 +321,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
       </isNotEmpty>
       order by a.I_IntId desc
     </select>
-    
+
     <select id="selectPM_Pond_Bill_IronbyDic"  parameterClass= "Hashtable" resultMap="SelectPM_Pond_Bill_IronAllResult">
       select
       a.I_IntId
@@ -518,8 +518,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
       </isNotEmpty>
       order by a.I_IntId desc
     </select>
-    
-    
+
+
     <select id="selectPM_Pond_Bill_IronbySiteAndTagFormation"  parameterClass= "string" resultMap="SelectPM_Pond_Bill_IronAllResult">
       select
       a.I_IntId
@@ -645,5 +645,69 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
       </isNotEmpty>
       order by a.I_IntId desc
     </select>
+
+    <select id="QueryBywgiston1" resultMap="SelectPM_Pond_Bill_IronAllResult"  resultClass="PM_Pond_Bill_Iron"  parameterClass="string">
+      select
+      a.I_IntId
+      ,a.C_WgtlistNo
+      ,a.C_PlanNo
+      ,a.C_HeatNo
+      ,a.C_BatchNo
+      ,a.C_LronNo
+      ,a.C_TankNo
+      ,a.C_ToDeptNo
+      ,a.C_ToDeptName
+      ,a.N_GrossWgt
+      ,a.N_TareWgt
+      ,a.N_TareWgt1
+      ,a.N_NetWgt
+      ,a.N_NetWgt1
+      ,a.N_SlagNum
+      ,a.N_NetWgt2
+      ,a.D_GrossWgtTime
+      ,a.D_TareWgtTime
+      ,a.C_GrossWgtSiteNo
+      ,a.C_GrossWgtSiteName
+      ,a.C_TareWgtSiteNo
+      ,a.C_TareWgtSiteName
+      ,a.C_GrossWgtMan
+      ,a.C_TareWgtMan
+      ,a.C_TrainGroupGross
+      ,a.C_TrainGroupTare
+      ,a.C_PlanStatus
+      ,a.C_UpLoadStatus
+      ,a.C_Remark
+      ,a.C_PondRemark
+      ,a.I_DataFlag
+      ,a.I_BillStatus
+      ,a.C_Reserve1
+      ,a.C_Reserve2
+      ,a.C_Reserve3
+      ,a.I_Reserve1
+      ,a.I_Reserve2
+      ,a.I_Reserve3
+      ,a.C_ReserveFlag1
+      ,a.C_ReserveFlag2
+      ,a.C_ReserveFlag3
+      ,a.I_ReserveFlag1
+      ,a.I_ReserveFlag2
+      ,a.I_ReserveFlag3
+      ,a.C_PlanCreateUser
+      ,a.D_PlanCreateTime
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from PM_Pond_Bill_Iron a
+      where a.C_WgtlistNo=#value#
+    </select>
+
+    <select id="QueryIronDataIsRepeatByPlanNo" resultMap="SelectPM_Pond_Bill_IronAllResult"   parameterClass="string">
+      select * FROM PM_POND_BILL_IRON
+      where I_DATAFLAG = 1
+      and I_BILLSTATUS != 3
+      and C_PLANNO = #PLANNO#
+    </select>
+
   </statements>
 </sqlMap>

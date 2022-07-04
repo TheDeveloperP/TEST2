@@ -503,6 +503,12 @@
     <Compile Include="PM\PM_Pond_Bill_Iron_Form.Designer.cs">
       <DependentUpon>PM_Pond_Bill_Iron_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="PM\PM_Pond_Bill_Iron_History_From.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_Pond_Bill_Iron_History_From.Designer.cs">
+      <DependentUpon>PM_Pond_Bill_Iron_History_From.cs</DependentUpon>
+    </Compile>
     <Compile Include="PM\PM_Pond_Bill_Supplies_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1216,6 +1222,9 @@
     <EmbeddedResource Include="PM\PM_Pond_Bill_Iron_Form.resx">
       <DependentUpon>PM_Pond_Bill_Iron_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_Pond_Bill_Iron_History_From.resx">
+      <DependentUpon>PM_Pond_Bill_Iron_History_From.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PM\PM_Pond_Bill_Supplies_Form.resx">
       <DependentUpon>PM_Pond_Bill_Supplies_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -1300,6 +1309,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PT\PT_TruckMeasureUsingPlan_Form.resx">
       <DependentUpon>PT_TruckMeasureUsingPlan_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RP\RP_Materiel_PrintRecord_Form.resx">
+      <DependentUpon>RP_Materiel_PrintRecord_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RP\RP_Materiel_Report.resx">
       <DependentUpon>RP_Materiel_Report.cs</DependentUpon>

@@ -64,10 +64,10 @@ namespace LTN.CS.SCMService.PM.Implement
                 PM_Pond_Bill_Supplies OldPondBill = CommonDao.ExecuteQueryForObject<PM_Pond_Bill_Supplies>("QueryBywgiston", pond.WgtlistNo);
                 PM_Pond_Bill_Supplies_History HistoryPondBill = new PM_Pond_Bill_Supplies_History();
                 SetBillValueToHistoryBill(OldPondBill, HistoryPondBill);
-                HistoryPondBill.UpDateColumns = CompareHistoryBill(pond, OldPondBill);
                 HistoryPondBill.UpDateHistoryTime = DateTime.Now.ToString("yyyyMMddHHmmss");
                 HistoryPondBill.UpDateHistoryUser = SessionHelper.LogUserNickName;
                 HistoryPondBill.ComputerIp = ipAddr.ToString();
+                HistoryPondBill.UpDateColumns = CompareHistoryBill(pond, OldPondBill);
                 //是否修改过数据到磅单历史表？更新此数据：插入新数据
                 var IsExist = CommonDao.ExecuteQueryForList<PM_Pond_Bill_Supplies_History>("QueryPM_Pond_Bill_Supplies_History", HistoryPondBill.WgtlistNo);
                 if (IsExist.Count != 0)
@@ -476,6 +476,34 @@ namespace LTN.CS.SCMService.PM.Implement
                 rs = null;
             }
             return rs;
+        }
+
+        public object ExecuteDB_InsertDateToBillSupplies(PM_Pond_Bill_Supplies pond)
+        {
+            object rss;
+            try
+            {
+                IPHostEntry ipHost = Dns.Resolve(Dns.GetHostName());
+                IPAddress ipAddr = ipHost.AddressList[0];
+                PM_Pond_Bill_Supplies OldPondBill = CommonDao.ExecuteQueryForObject<PM_Pond_Bill_Supplies>("QueryBywgiston", pond.WgtlistNo);
+                PM_Pond_Bill_Supplies_History HistoryPondBill = new PM_Pond_Bill_Supplies_History();
+                SetBillValueToHistoryBill(OldPondBill, HistoryPondBill);
+                //HistoryPondBill.UpDateColumns = "BillStatus.BillStatusDesc" + "&" + "作废" + "‖";
+                HistoryPondBill.UpDateColumns = " ";
+                HistoryPondBill.UpDateHistoryTime = DateTime.Now.ToString("yyyyMMddHHmmss");
+                HistoryPondBill.UpDateHistoryUser = SessionHelper.LogUserNickName;
+                HistoryPondBill.ComputerIp = ipAddr.ToString();
+                HistoryPondBill.IReserveFlag1 = 1;
+                rss = CommonDao.ExecuteInsert("InsertPM_Pond_Bill_Supplies_History", HistoryPondBill);
+
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);
+                rss = null;
+            }
+            return rss;
+
         }
     }
 }

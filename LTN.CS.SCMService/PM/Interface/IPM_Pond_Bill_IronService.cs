@@ -31,6 +31,9 @@ namespace LTN.CS.SCMService.PM.Interface
         /// <param name="IntId"></param>
         /// <returns></returns>
         object ExecuteDB_InvalidIronPondByIntId(PM_Pond_Bill_Iron pond);
+        //作废时插入历史表数据
+        object ExecuteDB_InsertDateToBillIron(PM_Pond_Bill_Iron pond);
+        
         /// <summary>
         /// 根据条件查询铁水磅单
         /// </summary>
@@ -41,5 +44,9 @@ namespace LTN.CS.SCMService.PM.Interface
         IList<PM_Pond_Bill_Iron> ExecuteDB_QueryByGroup(string FormationTag);
         //新增
         IList<PM_Pond_Bill_Iron> ExecuteDB_QueryBySiteAndTagFormation(Hashtable ht);
+     
+
+
+
     }
 }

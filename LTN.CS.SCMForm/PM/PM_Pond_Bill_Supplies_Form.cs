@@ -18,6 +18,7 @@ using DevExpress.XtraPrinting;
 using LTN.CS.SCMService.CS.Interface;
 using LTN.CS.SCMService.SM.Interface;
 using LTN.CS.SCMEntities.SM;
+using LTN.CS.Base.Common;
 
 namespace LTN.CS.SCMForm.PM
 {
@@ -246,11 +247,16 @@ namespace LTN.CS.SCMForm.PM
                 if (MessageDxUtil.ShowYesNoAndTips("确定作废当前选中数据？") == DialogResult.Yes)
                 {
                     SelectMainEntity = gvw_main.GetFocusedRow() as PM_Pond_Bill_Supplies;
+                    //2022.6.28 li 历史记录表插入
+                    var rss = MainService.ExecuteDB_InsertDateToBillSupplies(SelectMainEntity);   
+
                     SelectMainEntity.DataFlag = new EntityInt(0);
                     SelectMainEntity.PlanStatus = "D";
                     SelectMainEntity.UpLoadStatus = "N";
                     SelectMainEntity.UpdateTime = DateTime.Now.ToString("yyyyMMddHHmmss");
                     SelectMainEntity.UpdateUser = SessionHelper.LogUserNickName;
+                    SelectMainEntity.BillStatus = new BillStatusObj() { IntValue = (int)BillStatus.InvalidMeasure };
+
                     var rs = MainService.ExecuteDB_InvalidSuppliesPondByIntId(SelectMainEntity);
                     if (rs is CustomDBError)
                     {
@@ -260,6 +266,7 @@ namespace LTN.CS.SCMForm.PM
                     {
                         SetMainGridData(false);
                     }
+                    
                 }
             }
             catch (Exception ex)
@@ -267,7 +274,6 @@ namespace LTN.CS.SCMForm.PM
                 MessageDxUtil.ShowError(ex.Message);
             }
         }
-
         #endregion
 
         #region 控件方法
@@ -337,6 +343,7 @@ namespace LTN.CS.SCMForm.PM
         private void btn_Invalid_Click(object sender, EventArgs e)
         {
             CustomMainDelete();
+
         }
         #endregion
         /// <summary>
@@ -426,11 +433,16 @@ namespace LTN.CS.SCMForm.PM
                     for (int i = 0; i < rowhandles.Count(); i++)
                     {
                         var item = gvw_main.GetRow(rowhandles[i]) as PM_Pond_Bill_Supplies;
+                        //历史记录表插入
+                        var rss = MainService.ExecuteDB_InsertDateToBillSupplies(SelectMainEntity);   
+
                         item.UpdateTime = DateTime.Now.ToString("yyyyMMddHHmmss");
                         item.UpdateUser = SessionHelper.LogUserNickName;
                         item.DataFlag = new EntityInt(0);
                         item.PlanStatus = "D";
                         item.UpLoadStatus = "N";
+                        item.BillStatus = new BillStatusObj() { IntValue = (int)BillStatus.InvalidMeasure };
+
                         result = MainService.ExecuteDB_InvalidSuppliesPondByIntId(item);                        
                     }
                     if (result != null)
