@@ -149,6 +149,15 @@ namespace LTN.CS.SCMForm.PM
             {
                 ht.Add("WgtNo", txt_WgtlistNo.Text.Trim());
             }
+            //增加对时间的查询选择
+            if (check_queryByCreatetime.Checked)
+            {
+                ht.Add("timeType", 1);
+            }
+            else
+            {
+                ht.Add("timeType", 0);
+            }
             ht.Add("StartTime", CommonHelper.TimeToStr14(MyDateTimeHelper.ConvertToDateTimeDefaultNow(date_StartTime.Text)));
             ht.Add("EndTime", CommonHelper.TimeToStr14(MyDateTimeHelper.ConvertToDateTimeDefaultNow(date_EndTime.Text)));
             return ht;

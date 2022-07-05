@@ -110,6 +110,7 @@
     <Compile Include="PM\PM_ImportBill.cs" />
     <Compile Include="PM\PM_Middle_SuppliesPond_Info.cs" />
     <Compile Include="PM\PM_Pond_Bill_Iron.cs" />
+    <Compile Include="PM\PM_Pond_Bill_Iron_History.cs" />
     <Compile Include="PM\PM_Pond_Bill_OrbitWeighter.cs" />
     <Compile Include="PM\PM_Pond_Bill_Supplies.cs" />
     <Compile Include="PM\PM_Pond_Bill_Supplies_History.cs" />
@@ -422,6 +423,7 @@
     <EmbeddedResource Include="Maps\Pond_ComplateTime.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Maps\PM_Pond_Bill_Iron_History.xml" />
     <Content Include="Maps\SM_JZX_Huda_Message.xml">
       <SubType>Designer</SubType>
     </Content>

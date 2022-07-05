@@ -92,5 +92,7 @@ namespace LTN.CS.SCMService.PM.Interface
 
         //新增
         IList<PM_Bill_Truck> ExecuteDB_QueryPM_Bill_TruckByHashtable_ForHuda(Hashtable ht);
+
+        IList<PM_Bill_Truck> ExecuteDB_QueryLatestPM_Bill_TruckByCarNo1(string carNo);
     }
 }

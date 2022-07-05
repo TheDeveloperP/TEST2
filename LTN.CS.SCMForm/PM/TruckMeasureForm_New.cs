@@ -3475,6 +3475,7 @@ namespace LTN.CS.SCMForm.PM
                 }
                 bool isBlack = false;
                 bool isLessThan = false;
+                bool isMoreThan = false;
                 if (string.IsNullOrEmpty(txt_CarNoSelect.Text.ToUpper().Trim()))
                 {
                     MessageBox.Show("车号不允许为空!");
@@ -3502,6 +3503,13 @@ namespace LTN.CS.SCMForm.PM
                 {
                     MessageBox.Show("上次称重时间距离本次计量时间小于5分钟");
                     ShowTxtLog("上次称重时间距离本次计量时间小于5分钟");
+                }
+                //李佳政
+                CheckLastWeightTime1(ref isMoreThan);
+                if (isMoreThan)
+                {
+                    MessageBox.Show("回皮时间超过2天");
+                    //ShowTxtLog("回皮时间超过2天");
                 }
                 switch (logic)
                 {
